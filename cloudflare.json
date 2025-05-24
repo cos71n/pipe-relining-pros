@@ -1,0 +1,277 @@
+{
+  "name": "Mobile Services Template - Cloudflare Configuration",
+  "description": "Optimized Cloudflare settings for mobile services businesses",
+  "version": "1.0.0",
+  
+  "caching": {
+    "browser_cache_ttl": {
+      "static_assets": 31536000,
+      "images": 2592000,
+      "css_js": 604800,
+      "html": 3600,
+      "api": 0
+    },
+    "edge_cache_ttl": {
+      "static_assets": 2592000,
+      "images": 604800,
+      "css_js": 86400,
+      "html": 3600,
+      "api": 300
+    },
+    "cache_rules": [
+      {
+        "name": "Cache Static Assets",
+        "expression": "(http.request.uri.path matches \"\\.(css|js|woff2?|ttf|eot|ico|svg|png|jpg|jpeg|webp|avif|gif)$\")",
+        "action": "cache",
+        "cache_key": {
+          "cache_by_device_type": false,
+          "custom_key": {
+            "query_string": {
+              "exclude": ["utm_*", "fbclid", "gclid"]
+            }
+          }
+        },
+        "edge_ttl": 2592000,
+        "browser_ttl": 31536000
+      },
+      {
+        "name": "Cache API Routes with Short TTL",
+        "expression": "(http.request.uri.path matches \"^/api/\")",
+        "action": "cache",
+        "edge_ttl": 300,
+        "browser_ttl": 0,
+        "cache_key": {
+          "cache_by_device_type": true,
+          "custom_key": {
+            "query_string": {
+              "include_all": true
+            }
+          }
+        }
+      },
+      {
+        "name": "Cache HTML with Device Type",
+        "expression": "(http.request.uri.path matches \"\\.(html?)$\" or not http.request.uri.path contains \".\")",
+        "action": "cache",
+        "edge_ttl": 3600,
+        "browser_ttl": 3600,
+        "cache_key": {
+          "cache_by_device_type": true,
+          "custom_key": {
+            "query_string": {
+              "exclude": ["utm_*", "fbclid", "gclid", "ref"]
+            }
+          }
+        }
+      }
+    ]
+  },
+  
+  "security": {
+    "waf_rules": [
+      {
+        "name": "Block Common Attacks",
+        "expression": "(cf.threat_score gt 14) or (http.request.uri.path contains \"wp-admin\") or (http.request.uri.path contains \"phpmyadmin\")",
+        "action": "block"
+      },
+      {
+        "name": "Rate Limit Contact Forms",
+        "expression": "(http.request.uri.path eq \"/api/contact\" and http.request.method eq \"POST\")",
+        "action": "rate_limit",
+        "rate_limit": {
+          "threshold": 5,
+          "period": 60,
+          "action": "challenge"
+        }
+      },
+      {
+        "name": "Bot Management for Mobile Services",
+        "expression": "(cf.bot_management.score lt 30) and not (cf.bot_management.verified_bot)",
+        "action": "challenge"
+      }
+    ],
+    "ddos_protection": {
+      "enabled": true,
+      "sensitivity": "high"
+    },
+    "bot_management": {
+      "enabled": true,
+      "fight_mode": false,
+      "super_bot_fight_mode": true
+    }
+  },
+  
+  "performance": {
+    "minification": {
+      "css": true,
+      "html": true,
+      "js": true
+    },
+    "compression": {
+      "brotli": true,
+      "gzip": true
+    },
+    "image_optimization": {
+      "polish": "lossy",
+      "webp": true,
+      "avif": true
+    },
+    "mobile_optimization": {
+      "rocket_loader": false,
+      "mirage": true,
+      "mobile_redirect": false
+    },
+    "http3": true,
+    "0rtt": true,
+    "ipv6": true,
+    "websockets": true
+  },
+  
+  "page_rules": [
+    {
+      "url": "*.yourdomain.com/api/*",
+      "settings": {
+        "cache_level": "cache_everything",
+        "edge_cache_ttl": 300,
+        "browser_cache_ttl": 0
+      }
+    },
+    {
+      "url": "*.yourdomain.com/images/*",
+      "settings": {
+        "cache_level": "cache_everything",
+        "edge_cache_ttl": 2592000,
+        "browser_cache_ttl": 31536000
+      }
+    },
+    {
+      "url": "*.yourdomain.com/*",
+      "settings": {
+        "cache_level": "cache_everything",
+        "edge_cache_ttl": 3600,
+        "browser_cache_ttl": 3600,
+        "security_level": "medium",
+        "ssl": "strict"
+      }
+    }
+  ],
+  
+  "dns": {
+    "proxied_records": [
+      {
+        "type": "A",
+        "name": "@",
+        "proxied": true
+      },
+      {
+        "type": "CNAME", 
+        "name": "www",
+        "proxied": true
+      },
+      {
+        "type": "CNAME",
+        "name": "api",
+        "proxied": true
+      }
+    ]
+  },
+  
+  "ssl": {
+    "mode": "strict",
+    "min_tls_version": "1.2",
+    "tls_1_3": true,
+    "automatic_https_rewrites": true,
+    "always_use_https": true,
+    "hsts": {
+      "enabled": true,
+      "max_age": 31536000,
+      "include_subdomains": true,
+      "preload": true
+    }
+  },
+  
+  "mobile_specific": {
+    "amp": {
+      "enabled": false
+    },
+    "mobile_redirect": {
+      "enabled": false,
+      "mobile_subdomain": null
+    },
+    "device_detection": {
+      "enabled": true,
+      "cache_by_device": true
+    }
+  },
+  
+  "analytics": {
+    "web_analytics": true,
+    "real_user_monitoring": true,
+    "core_web_vitals": true
+  },
+  
+  "workers": {
+    "routes": [
+      {
+        "pattern": "yourdomain.com/api/*",
+        "script": "api-handler"
+      },
+      {
+        "pattern": "yourdomain.com/contact",
+        "script": "contact-form-handler"
+      }
+    ]
+  },
+  
+  "deployment": {
+    "build_command": "npm run build",
+    "build_output_directory": ".next",
+    "root_directory": "/",
+    "environment_variables": {
+      "NODE_ENV": "production",
+      "NEXT_TELEMETRY_DISABLED": "1"
+    },
+    "functions": {
+      "directory": "functions",
+      "node_compat": true
+    }
+  },
+  
+  "redirects": [
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/services/:path*",
+      "destination": "/#services",
+      "permanent": false
+    }
+  ],
+  
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Mobile-Optimized",
+          "value": "true"
+        },
+        {
+          "key": "X-Business-Type", 
+          "value": "mobile-services"
+        }
+      ]
+    },
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=300, s-maxage=300"
+        }
+      ]
+    }
+  ]
+} 
