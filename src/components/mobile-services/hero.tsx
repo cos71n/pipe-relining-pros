@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { Phone, Star, CheckCircle, Clock, MessageCircle } from "lucide-react"
 import { useQuoteChat } from "@/contexts/quote-chat-context"
 
@@ -17,24 +17,24 @@ export function Hero() {
   // Customer avatars for social proof
   const customerAvatars = [
     {
-      src: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
-      alt: "Happy Customer 1",
+      src: "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/reviews/ken.png",
+      alt: "Ken Salale",
     },
     {
-      src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
-      alt: "Happy Customer 2",
+      src: "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/reviews/liah.png",
+      alt: "Liah Williams",
     },
     {
-      src: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
-      alt: "Happy Customer 3",
+      src: "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/reviews/salome.png",
+      alt: "Salome Chemouilli",
     },
     {
-      src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
-      alt: "Happy Customer 4",
+      src: "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/reviews/grant.png",
+      alt: "Grant",
     },
     {
-      src: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
-      alt: "Happy Customer 5",
+      src: "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/reviews/christopher.png",
+      alt: "Christopher Parker",
     },
   ]
 
@@ -86,9 +86,20 @@ export function Hero() {
         <div className="mx-auto mt-10 flex w-fit flex-col items-center gap-4 sm:flex-row justify-center">
           <span className="mx-4 inline-flex items-center -space-x-4">
             {customerAvatars.map((avatar, index) => (
-              <Avatar key={index} className="size-14 border">
-                <AvatarImage src={avatar.src} alt={avatar.alt} />
-              </Avatar>
+              <div key={index} className="size-14 rounded-full overflow-hidden border">
+                <img 
+                  src={avatar.src} 
+                  alt={avatar.alt}
+                  className="h-full w-full object-cover"
+                  onError={(e) => {
+                    console.log('Hero image failed to load:', avatar.src);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                  onLoad={() => {
+                    console.log('Hero image loaded successfully:', avatar.src);
+                  }}
+                />
+              </div>
             ))}
           </span>
           <div className="text-center sm:text-left">
@@ -115,4 +126,4 @@ export function Hero() {
       </div>
     </section>
   )
-} 
+}

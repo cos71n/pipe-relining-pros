@@ -27,14 +27,14 @@ function PageContent() {
         {/* Services Overview */}
         <Services />
         
+        {/* Testimonials */}
+        <Testimonials />
+        
         {/* Why Choose Us */}
         <WhyChooseUs />
         
         {/* Service Area */}
         <ServiceArea />
-        
-        {/* Testimonials */}
-        <Testimonials />
         
         {/* Contact/Booking */}
         <Contact />

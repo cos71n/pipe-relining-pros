@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils"
-import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 
 export interface TestimonialAuthor {
   name: string
@@ -36,9 +36,20 @@ export function TestimonialCard({
       )}
     >
       <div className="flex items-center gap-3">
-        <Avatar className="h-12 w-12">
-          <AvatarImage src={author.avatar} alt={author.name} />
-        </Avatar>
+        <div className="h-12 w-12 rounded-full overflow-hidden border">
+          <img 
+            src={author.avatar} 
+            alt={author.name}
+            className="h-full w-full object-cover"
+            onError={(e) => {
+              console.log('Image failed to load:', author.avatar);
+              e.currentTarget.style.display = 'none';
+            }}
+            onLoad={() => {
+              console.log('Image loaded successfully:', author.avatar);
+            }}
+          />
+        </div>
         <div className="flex flex-col items-start">
           <h3 className="text-md font-semibold leading-none">
             {author.name}

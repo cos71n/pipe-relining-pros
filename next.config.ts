@@ -20,12 +20,11 @@ const nextConfig: NextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://vercel.live https://*.vercel.app https://va.vercel-scripts.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com",
-              "img-src 'self' data: https: blob:",
-              "connect-src 'self' https://vercel.live https://*.vercel.app https://vitals.vercel-insights.com",
-              "frame-src 'self' https://vercel.live",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline'",
+              "style-src 'self' 'unsafe-inline'",
+              "img-src 'self' data: https: https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev",
+              "font-src 'self' data:",
+              "connect-src 'self' https:",
               "media-src 'self'",
               "object-src 'none'",
               "base-uri 'self'",
@@ -74,11 +73,11 @@ const nextConfig: NextConfig = {
           },
           {
             key: 'Cross-Origin-Resource-Policy',
-            value: 'same-origin'
+            value: 'cross-origin'
           },
           {
             key: 'Cross-Origin-Embedder-Policy',
-            value: 'require-corp'
+            value: 'unsafe-none'
           }
         ]
       }
@@ -113,6 +112,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'static.wixstatic.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev',
         port: '',
         pathname: '/**',
       }

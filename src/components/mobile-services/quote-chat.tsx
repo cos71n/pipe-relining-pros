@@ -26,6 +26,7 @@ import {
   StepperTrigger,
 } from "@/components/ui/stepper"
 import { useQuoteChat } from "@/contexts/quote-chat-context"
+import { cn } from "@/lib/utils"
 
 type ChatStep = 'location' | 'service' | 'contact' | 'final' | 'complete'
 
@@ -171,7 +172,7 @@ export function QuoteChat() {
           addMessage("📱 What's your phone number?", 'ai')
         } else if (!leadData.phone) {
           setLeadData(prev => ({ ...prev, phone: userInput }))
-          addMessage("Almost done! Any final message or specific details about your vehicle/issue? (Optional)", 'ai')
+          addMessage("Last one: anything else I should know? If you know the Make and Model of your car please include it too (Optional)", 'ai')
           setCurrentStep('final')
         }
         break
@@ -201,7 +202,7 @@ export function QuoteChat() {
         if (!leadData.name) return "Enter your full name"
         if (!leadData.phone) return "Enter your phone number"
         return ""
-      case 'final': return "Any specific details about your vehicle or issue..."
+      case 'final': return "e.g. Toyota Camry, strange noise when braking..."
       default: return "Type your message..."
     }
   }
@@ -282,13 +283,16 @@ export function QuoteChat() {
               variant={message.sender === "user" ? "sent" : "received"}
             >
               <ChatBubbleAvatar
-                className="h-8 w-8 shrink-0"
+                className={cn(
+                  "h-8 w-8 shrink-0",
+                  message.sender === "user" && "[&>span]:text-xs [&>span]:font-medium"
+                )}
                 src={
                   message.sender === "user"
-                    ? "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&q=80&crop=faces&fit=crop"
-                    : "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?w=64&h=64&q=80&crop=faces&fit=crop"
+                    ? undefined
+                    : "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/border-icon.png"
                 }
-                fallback={message.sender === "user" ? "ME" : "BMM"}
+                fallback={message.sender === "user" ? "You" : "BMM"}
               />
               <ChatBubbleMessage
                 variant={message.sender === "user" ? "sent" : "received"}
