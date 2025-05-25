@@ -68,7 +68,7 @@ export function Services() {
     }
   ]
 
-  const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+1-555-123-4567'
+  const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '0468 358 074'
 
   return (
     <section id="services" className="py-16 md:py-20 bg-background">

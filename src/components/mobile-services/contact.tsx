@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Mail } from "lucide-react"
 
 export function Contact() {
-  const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+1-555-123-4567'
+  const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '0468 358 074'
   
   return (
     <section id="contact" className="py-16 md:py-20">

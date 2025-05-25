@@ -24,7 +24,7 @@ const geistMono = Geist_Mono({
 // Environment-based configuration
 const siteUrl = process.env.SITE_URL || 'https://yourbusiness.com'
 const businessName = process.env.BUSINESS_NAME || 'Your Mobile Service Business'
-const businessPhone = process.env.BUSINESS_PHONE || '+1-555-123-4567'
+const businessPhone = process.env.BUSINESS_PHONE || '0468 358 074'
 const businessEmail = process.env.BUSINESS_EMAIL || 'contact@yourbusiness.com'
 const serviceArea = process.env.SERVICE_AREA || 'Your City and surrounding areas'
 const siteName = process.env.SITE_NAME || businessName

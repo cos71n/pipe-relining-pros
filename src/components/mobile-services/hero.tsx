@@ -3,9 +3,12 @@
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
-import { Phone, Star, CheckCircle, Clock } from "lucide-react"
+import { Phone, Star, CheckCircle, Clock, MessageCircle } from "lucide-react"
+import { useQuoteChat } from "@/contexts/quote-chat-context"
 
 export function Hero() {
+  const { openChat } = useQuoteChat()
+  
   // Environment-based business info
   const businessName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Border Mobile Mechanic'
   const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '0468 358 074'
@@ -36,7 +39,7 @@ export function Hero() {
   ]
 
   return (
-    <section className="py-32">
+    <section className="py-16 md:py-32">
       <div className="container text-center mx-auto">
         <div className="mx-auto flex max-w-screen-lg flex-col gap-6 items-center">
           {/* Trust Indicators - Preserved from original */}
@@ -49,28 +52,33 @@ export function Hero() {
 
           {/* Modern Hero Heading */}
           <h1 className="text-3xl font-extrabold lg:text-6xl text-center">
-            <span className="text-foreground">Professional</span>{" "}
-            Mobile Services{" "}
-            <span className="text-foreground">That Come to You</span>
+            <span className="text-foreground">Mobile Mechanic</span>{" "}
+            That Comes To You{" "}
+            <span className="text-foreground">On The Gold Coast & Northern NSW</span>
           </h1>
           
           <p className="text-balance text-muted-foreground lg:text-lg text-center max-w-4xl">
-            Skip the hassle of appointments and travel time. Get expert service 
-            at your location with our fully equipped mobile team. 
-            Convenient, reliable, and professional service serving {serviceArea} & surrounding areas.
+            Skip the hassle of visiting a workshop, or paying to get your car towed somewhere. Get expert service 
+            wherever your car is with our fully equipped mobile mechanic service. 
+            Convenient and reliable service in the Gold Coast & Northern NSW regions.
           </p>
         </div>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
-          <Button asChild size="lg" className="text-lg px-8 py-6 bg-hero hover:bg-hero/90 text-hero-foreground">
+          <Button 
+            size="lg" 
+            className="text-lg px-8 py-6 bg-hero hover:bg-hero/90 text-hero-foreground"
+            onClick={openChat}
+          >
+            <MessageCircle className="w-5 h-5 mr-2" />
+            Get Quick Quote
+          </Button>
+          <Button asChild size="lg" variant="outline" className="text-lg px-8 py-6 border-hero text-hero hover:bg-hero-muted">
             <a href={`tel:${businessPhone}`}>
               <Phone className="w-5 h-5 mr-2" />
               Call Now: {businessPhone}
             </a>
-          </Button>
-          <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-hero text-hero hover:bg-hero-muted">
-            Get Quick Quote
           </Button>
         </div>
 
@@ -93,7 +101,14 @@ export function Hero() {
               ))}
             </div>
             <p className="text-center sm:text-left font-medium text-muted-foreground">
-              from 200+ satisfied customers
+              rated on <span className="font-bold">
+                <span className="text-blue-600">G</span>
+                <span className="text-red-500">o</span>
+                <span className="text-yellow-500">o</span>
+                <span className="text-blue-600">g</span>
+                <span className="text-green-500">l</span>
+                <span className="text-red-500">e</span>
+              </span> reviews
             </p>
           </div>
         </div>

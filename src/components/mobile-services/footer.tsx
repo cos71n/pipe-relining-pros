@@ -3,7 +3,7 @@ import { Phone, MapPin } from "lucide-react"
 
 export function Footer() {
   const businessName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Your Mobile Service Business'
-  const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '+1-555-123-4567'
+  const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '0468 358 074'
   const serviceArea = process.env.NEXT_PUBLIC_SERVICE_AREA || 'Your City'
   
   return (

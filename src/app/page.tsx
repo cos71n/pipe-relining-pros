@@ -1,3 +1,5 @@
+"use client"
+
 import { Hero } from "@/components/mobile-services/hero"
 import { Services } from "@/components/mobile-services/services"
 import { WhyChooseUs } from "@/components/mobile-services/why-choose-us"
@@ -6,10 +8,14 @@ import { Testimonials } from "@/components/mobile-services/testimonials"
 import { Contact } from "@/components/mobile-services/contact"
 import { Header } from "@/components/mobile-services/header"
 import { Footer } from "@/components/mobile-services/footer"
+import { QuoteChat } from "@/components/mobile-services/quote-chat"
+import { QuoteChatProvider, useQuoteChat } from "@/contexts/quote-chat-context"
 
-export default function HomePage() {
+function PageContent() {
+  const { isOpen } = useQuoteChat()
+  
   return (
-    <div className="min-h-screen bg-background">
+    <div className={`min-h-screen bg-background ${!isOpen ? 'pb-14 md:pb-0' : 'pb-0'}`}>
       {/* Header with Navigation */}
       <Header />
       
@@ -36,6 +42,17 @@ export default function HomePage() {
       
       {/* Footer */}
       <Footer />
+      
+      {/* Quote Chat Widget */}
+      <QuoteChat />
     </div>
+  )
+}
+
+export default function HomePage() {
+  return (
+    <QuoteChatProvider>
+      <PageContent />
+    </QuoteChatProvider>
   )
 }

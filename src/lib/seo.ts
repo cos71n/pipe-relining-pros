@@ -48,7 +48,7 @@ interface LocalBusinessInfo {
 const getBaseConfig = () => ({
   siteUrl: process.env.SITE_URL || 'https://yourbusiness.com',
   businessName: process.env.BUSINESS_NAME || 'Your Mobile Service Business',
-  businessPhone: process.env.BUSINESS_PHONE || '+1-555-123-4567',
+  businessPhone: process.env.BUSINESS_PHONE || '0468 358 074',
   businessEmail: process.env.BUSINESS_EMAIL || 'contact@yourbusiness.com',
   serviceArea: process.env.SERVICE_AREA || 'Your City and surrounding areas',
 })
