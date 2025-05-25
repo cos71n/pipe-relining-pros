@@ -49,7 +49,7 @@ export function LocationInfoSection({ location }: LocationInfoSectionProps) {
               <p>
                 Whether you need <strong>brake service {location}</strong>, <strong>battery replacement {location}</strong>, 
                 logbook servicing, or pre-purchase inspections, our <strong>mobile car service {location}</strong> 
-                covers all major automotive needs. We're proud to serve the {location} community with same-day service, 
+                covers all major automotive needs. We&apos;re proud to serve the {location} community with same-day service, 
                 competitive pricing, and the convenience of professional <strong>auto repair {location}</strong> 
                 that comes to you.
               </p>

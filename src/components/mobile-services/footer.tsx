@@ -1,6 +1,7 @@
+import React from 'react';
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, MapPin } from "lucide-react"
+import { Phone } from "lucide-react"
 import { useQuoteChat } from "@/contexts/quote-chat-context"
 
 export function Footer() {

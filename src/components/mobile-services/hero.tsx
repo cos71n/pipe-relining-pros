@@ -1,18 +1,18 @@
 "use client"
 
-import { Badge } from "@/components/ui/badge"
+import React from 'react';
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { Phone, Star, CheckCircle, Clock, MessageCircle } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Phone, MessageCircle, Star, Clock } from "lucide-react"
 import { useQuoteChat } from "@/contexts/quote-chat-context"
 
-export function Hero() {
+export default function Hero() {
   const { openChat } = useQuoteChat()
   
   // Environment-based business info
-  const businessName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Border Mobile Mechanic'
+  // const businessName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Border Mobile Mechanic'
   const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '0468 358 074'
-  const serviceArea = process.env.NEXT_PUBLIC_SERVICE_AREA || 'Your City'
+  // const serviceArea = process.env.NEXT_PUBLIC_SERVICE_AREA || 'Gold Coast & Northern NSW'
 
   // Customer avatars for social proof
   const customerAvatars = [

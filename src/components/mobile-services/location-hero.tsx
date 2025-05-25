@@ -1,20 +1,20 @@
 "use client"
 
+import React from 'react';
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { Phone, Star, CheckCircle, Clock, MessageCircle } from "lucide-react"
+import { Phone, Star, Clock, MessageCircle } from "lucide-react"
 import { useQuoteChat } from "@/contexts/quote-chat-context"
 
 interface LocationHeroProps {
   location: string
 }
 
-export function LocationHero({ location }: LocationHeroProps) {
+export default function LocationHero({ location }: LocationHeroProps) {
   const { openChat } = useQuoteChat()
   
   // Environment-based business info
-  const businessName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Border Mobile Mechanic'
+  // const businessName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Border Mobile Mechanic'
   const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '0468 358 074'
 
   // Customer avatars for social proof (same as homepage)
@@ -61,7 +61,7 @@ export function LocationHero({ location }: LocationHeroProps) {
           </h1>
           
           <p className="text-balance text-muted-foreground lg:text-lg text-center max-w-4xl">
-            We will come to you in {location} and work on your car where you need us to - home, work or even if you've broken down. We're a fully equipped mobile mechanic in {location}, reliable and ready to help you now.
+            We will come to you in {location} and work on your car where you need us to - home, work or even if you&apos;ve broken down. We&apos;re a fully equipped mobile mechanic in {location}, reliable and ready to help you now.
           </p>
         </div>
 

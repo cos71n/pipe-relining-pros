@@ -21,7 +21,7 @@ const getBusinessConfig = () => ({
 
 // Generate location-specific metadata
 export function generateLocationMetadata(location: LocationConfig): Metadata {
-  const { businessName, businessPhone, siteUrl } = getBusinessConfig()
+  const { businessName, siteUrl } = getBusinessConfig()
   
   return {
     title: `Mobile Mechanic ${location.name} - ${businessName}`,

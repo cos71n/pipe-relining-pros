@@ -1,8 +1,8 @@
 "use client"
 
-import { Header } from "@/components/mobile-services/header"
+import Header from "@/components/mobile-services/header"
 import { Footer } from "@/components/mobile-services/footer"
-import { LocationHero } from "@/components/mobile-services/location-hero"
+import LocationHero from "@/components/mobile-services/location-hero"
 import { MobileServicesGrid } from "@/components/mobile-services/mobile-services-grid"
 import { LocationInfoSection } from "@/components/mobile-services/location-info-section"
 import { MobileMechanicFaq } from "@/components/mobile-services/mobile-mechanic-faq"

@@ -1,23 +1,23 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import React, { useState } from 'react'
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
-import { Badge } from "@/components/ui/badge"
 import { Phone, Menu, MapPin, Clock, MessageCircle } from "lucide-react"
 import { useQuoteChat } from "@/contexts/quote-chat-context"
 
-export function Header() {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const { openChat } = useQuoteChat()
+  
+  const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || "0468 358 074"
 
   // Environment-based business info
-  const businessName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Border Mobile Mechanic'
-  const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || '0468 358 074'
-  const serviceArea = process.env.NEXT_PUBLIC_SERVICE_AREA || 'Your City'
+  // const businessName = process.env.NEXT_PUBLIC_BUSINESS_NAME || 'Border Mobile Mechanic'
+  // const serviceArea = process.env.NEXT_PUBLIC_SERVICE_AREA || 'Your City'
 
   const navigationItems = [
     { href: "#services", label: "Services" },
@@ -31,7 +31,7 @@ export function Header() {
   }
 
   // Scroll detection for dynamic shadow
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY
       setIsScrolled(scrollTop > 10)

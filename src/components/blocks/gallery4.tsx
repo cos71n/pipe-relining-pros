@@ -104,7 +104,6 @@ const data = [
 ];
 
 const Gallery4 = ({
-  title = "Our Services",
   description = "Border Mobile Mechanical can help you with your car issue, wherever you are. From routine maintenance to complex repairs, we bring the garage to your location with fully equipped vehicles and expert technicians.",
   items = data,
 }: Gallery4Props) => {
@@ -247,4 +246,4 @@ const Gallery4 = ({
   );
 };
 
-export { Gallery4 }; 
+export default Gallery4; 

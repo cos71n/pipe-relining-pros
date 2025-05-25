@@ -1,21 +1,17 @@
 "use client"
 
-import { useState, FormEvent, useEffect } from "react"
-import { Send, Bot, CornerDownLeft, MessageCircle, Phone, Wrench, MapPin, User, Mail, X } from "lucide-react"
+import React, { useState, FormEvent, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import {
-  ChatBubble,
-  ChatBubbleAvatar,
-  ChatBubbleMessage,
-} from "@/components/ui/chat-bubble"
+import { MessageCircle, Phone, X, Wrench, CornerDownLeft } from "lucide-react"
+import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat-bubble"
 import { ChatInput } from "@/components/ui/chat-input"
+import { ChatMessageList } from "@/components/ui/chat-message-list"
 import {
-  ExpandableChat,
+  // ExpandableChat,
   ExpandableChatHeader,
   ExpandableChatBody,
   ExpandableChatFooter,
 } from "@/components/ui/expandable-chat"
-import { ChatMessageList } from "@/components/ui/chat-message-list"
 import {
   Stepper,
   StepperDescription,
