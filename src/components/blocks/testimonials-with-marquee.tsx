@@ -36,11 +36,11 @@ export function TestimonialsSection({
 
         <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
           <div 
-            className="flex gap-4 hover:[animation-play-state:paused]"
+            className="flex gap-4 hover:[animation-play-state:paused] animate-marquee-seamless"
             style={{
               width: 'max-content',
-              animation: 'marquee-seamless 60s linear infinite'
-            }}
+              '--duration': '60s'
+            } as React.CSSProperties}
           >
             {/* First set of testimonials */}
             {testimonials.slice(0, 8).map((testimonial, i) => (
