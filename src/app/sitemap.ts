@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next'
 
+// Required for static export
+export const dynamic = 'force-static'
+
 // Mobile Services Sitemap Generation
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.SITE_URL || 'https://yourbusiness.com'

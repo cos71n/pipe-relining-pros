@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next'
 
+// Required for static export
+export const dynamic = 'force-static'
+
 // Mobile Services Robots.txt Generation
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = process.env.SITE_URL || 'https://yourbusiness.com'
