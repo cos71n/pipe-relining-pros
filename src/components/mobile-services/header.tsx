@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -11,6 +11,7 @@ import { useQuoteChat } from "@/contexts/quote-chat-context"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const { openChat } = useQuoteChat()
 
   // Environment-based business info
@@ -29,8 +30,21 @@ export function Header() {
     setIsOpen(false) // Close mobile menu if open
   }
 
+  // Scroll detection for dynamic shadow
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 10)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={`sticky top-0 z-50 w-full bg-background/98 backdrop-blur supports-[backdrop-filter]:bg-background/95 transition-shadow duration-300 ${
+      isScrolled ? 'shadow-sm' : ''
+    }`}>
       {/* Main navigation */}
       <div className="container mx-auto px-4">
         <div className="flex h-16 items-center justify-between">
