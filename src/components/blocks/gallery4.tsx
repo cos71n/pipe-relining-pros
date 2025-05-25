@@ -131,10 +131,10 @@ const Gallery4 = ({
   }, [carouselApi]);
 
   return (
-    <section id="services" className="py-16 md:py-20 bg-background">
+    <section id="services" className="py-12 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header - matching site style */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
           <Badge variant="outline" className="mb-4">
             Our Services
           </Badge>

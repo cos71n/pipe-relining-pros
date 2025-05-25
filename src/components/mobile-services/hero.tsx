@@ -39,11 +39,11 @@ export function Hero() {
   ]
 
   return (
-    <section className="py-16 md:py-32">
+    <section className="py-12 md:py-32">
       <div className="container text-center mx-auto">
-        <div className="mx-auto flex max-w-screen-lg flex-col gap-6 items-center">
+        <div className="mx-auto flex max-w-screen-lg flex-col gap-4 md:gap-6 items-center">
           {/* Trust Indicators - Preserved from original */}
-          <div className="flex flex-wrap justify-center gap-2 mb-4">
+          <div className="flex flex-wrap justify-center gap-2 mb-2 md:mb-4">
             <Badge variant="secondary" className="bg-orange-100 text-orange-800 border-orange-200">
               <Clock className="w-3 h-3 mr-1" />
               Same Day Service
@@ -65,7 +65,7 @@ export function Hero() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-10">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-6 md:mt-10">
           <Button 
             size="lg" 
             className="text-lg px-8 py-6 bg-hero hover:bg-hero/90 text-hero-foreground"
@@ -83,7 +83,7 @@ export function Hero() {
         </div>
 
         {/* Social Proof with Customer Avatars and Reviews */}
-        <div className="mx-auto mt-10 flex w-fit flex-col items-center gap-4 sm:flex-row justify-center">
+        <div className="mx-auto mt-6 md:mt-10 flex w-fit flex-col items-center gap-4 sm:flex-row justify-center">
           <span className="mx-4 inline-flex items-center -space-x-4">
             {customerAvatars.map((avatar, index) => (
               <div key={index} className="size-14 rounded-full overflow-hidden border">

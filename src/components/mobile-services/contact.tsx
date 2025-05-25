@@ -9,10 +9,10 @@ export function Contact() {
   const { openChat } = useQuoteChat()
   
   return (
-    <section id="contact" className="py-16 md:py-20">
+    <section id="contact" className="py-12 md:py-20">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 md:mb-8">
             Ready to Get Started?
           </h2>
           

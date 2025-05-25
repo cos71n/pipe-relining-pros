@@ -17,7 +17,7 @@ export function ServiceArea() {
   ]
   
   return (
-    <section id="service-area" className="py-16 md:py-20 bg-muted/30">
+    <section id="service-area" className="py-12 md:py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto">
           <Badge variant="outline" className="mb-4">Service Area</Badge>
@@ -25,7 +25,7 @@ export function ServiceArea() {
             <MapPin className="w-8 h-8 text-primary inline mr-2" />
             Servicing the Gold Coast & Northern NSW Region
           </h2>
-          <p className="text-lg text-muted-foreground mb-12">
+          <p className="text-lg text-muted-foreground mb-8 md:mb-12">
             We can visit you wherever your car is across the Northern NSW and Gold Coast region.
           </p>
           

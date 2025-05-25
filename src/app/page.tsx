@@ -1,6 +1,7 @@
 "use client"
 
 import { Hero } from "@/components/mobile-services/hero"
+import { CarLogos } from "@/components/mobile-services/car-logos"
 import { Services } from "@/components/mobile-services/services"
 import { WhyChooseUs } from "@/components/mobile-services/why-choose-us"
 import { ServiceArea } from "@/components/mobile-services/service-area"
@@ -23,6 +24,9 @@ function PageContent() {
       <main className="relative">
         {/* Hero Section */}
         <Hero />
+        
+        {/* Car Logos Section */}
+        <CarLogos />
         
         {/* Services Overview */}
         <Services />

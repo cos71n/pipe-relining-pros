@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer className="bg-muted py-12 border-t">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-12 lg:gap-16">
           {/* Logo and Description */}
           <div>
             <div className="mb-4">
@@ -28,7 +28,7 @@ export function Footer() {
           </div>
           
           {/* Quick Links */}
-          <div>
+          <div className="md:ml-8">
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <div className="space-y-2 text-sm">
               <Link href="#services" className="block hover:underline">Services</Link>
