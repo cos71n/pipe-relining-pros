@@ -4,7 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent, SheetTrigger, SheetTitle, SheetDescription } from "@/components/ui/sheet"
 import { Badge } from "@/components/ui/badge"
 import { Phone, Menu, MapPin, Clock, MessageCircle } from "lucide-react"
 import { useQuoteChat } from "@/contexts/quote-chat-context"
@@ -89,6 +89,11 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
+                <SheetDescription className="sr-only">
+                  Access navigation links, contact information, and quick quote options
+                </SheetDescription>
+                
                 <div className="flex flex-col space-y-4 mt-4">
                   <div className="flex items-center space-x-2 pb-4 border-b">
                     <Image
@@ -129,11 +134,11 @@ export function Header() {
                   <div className="pt-4 space-y-2 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
                       <MapPin className="h-4 w-4" />
-                      <span>Serving {serviceArea}</span>
+                      <span>Gold Coast & Northern NSW</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <Clock className="h-4 w-4" />
-                      <span>Mon-Fri 7AM-7PM, Sat-Sun 8AM-5PM</span>
+                      <span>24/7 for regular & emergency services</span>
                     </div>
                   </div>
                 </div>
