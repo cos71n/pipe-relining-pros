@@ -138,8 +138,8 @@ const nextConfig: NextConfig = {
     // Minimize layout shift
     minimumCacheTTL: 60,
     
-    // Cloudflare-optimized settings
-    unoptimized: false,
+    // Cloudflare-optimized settings (required for static export)
+    unoptimized: true,
   },
 
   // Performance optimizations
@@ -221,7 +221,9 @@ const nextConfig: NextConfig = {
   },
 
   // Output configuration for Cloudflare Pages
-  output: 'standalone',
+  output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
 };
 
 export default withBundleAnalyzer(nextConfig);
