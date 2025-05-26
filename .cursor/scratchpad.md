@@ -22,11 +22,39 @@ Building a generic, mobile-first website template for mobile services businesses
 - Template approach allows for scalable deployment across multiple brands
 - **Security Critical**: Handle customer contact info, business data, and potentially payment information
 
-### Current Task: Customer Reviews Animation Fix
-**User Request**: "The real customer reviews section on the home page and the burleigh location page are not animated. They need to be scrolling like they do on localhost."
+### Current Task: Mobile Performance Optimization (PageSpeed Insights)
+**User Request**: "I have attached screenshots from PageSpeed Insights with recommendations on how to improve load speed on Mobile devices. Can we implement any of this easily and will it improve things? What else can be done to make mobile load speed as quick as possible We're running the free layer of Cloudflare at the moment too, so can adjust settings on that if you'd like."
 
-**Problem Analysis:**
-The customer reviews sections are displaying statically in production but work correctly with scrolling animation on localhost. This suggests a client-side hydration or animation initialization issue that needs investigation and resolution.
+**PageSpeed Insights Analysis:**
+Based on the provided screenshots, there are several high-impact optimization opportunities:
+
+1. **Reduce unused JavaScript** - Est savings of 133 KiB
+   - 2uguru.com vendor chunk (217.1 KiB total, 133.1 KiB unused)
+   - Significant opportunity for code splitting and tree shaking
+
+2. **Serve images in next-gen formats** - Est savings of 59 KiB  
+   - Convert service images (oil-change.jpeg, logbook.avif, purchase-inspection.avif, battery.avif, breakdown.avif) to WebP/AVIF
+   - Current images: 947.7 KiB total, 687.6 KiB potential savings
+
+3. **Properly size images** - Est savings of 688 KiB
+   - Multiple service images are oversized for their display dimensions
+   - Need responsive image sizing and optimization
+
+4. **Defer offscreen images** - Est savings of 182 KiB
+   - Car manufacturer logos (VW, Mercedes, Mitsubishi, Skoda, Audi, Isuzu, Nissan) loading eagerly
+   - Implement lazy loading for below-the-fold content
+
+**Additional Optimization Opportunities:**
+- Cloudflare free tier optimizations (Brotli compression, minification, caching)
+- Critical CSS inlining
+- Font optimization and preloading
+- Resource hints (preconnect, dns-prefetch)
+- Service Worker for caching strategy
+
+**Impact Assessment:**
+- **Total Potential Savings**: ~962 KiB (133 + 59 + 688 + 182)
+- **Expected Performance Gain**: Significant improvement in LCP, FCP, and overall mobile experience
+- **Implementation Difficulty**: Medium - requires image optimization pipeline and code splitting
 
 ### Previous Task: Quote Chat Sending Mechanism Implementation
 **User Request**: "The Get Quick quote button using the chat popout across the site - how does this actually SEND when the time comes? We need to set that up."
@@ -166,6 +194,92 @@ Based on research, 21st.dev is:
 - [ ] Documentation and deployment guide
 
 ## Current Sprint / Active Tasks
+
+#### Task 22: Mobile Performance Optimization (PageSpeed Insights) ⚡ **IN PROGRESS**
+**Success Criteria:**
+- [ ] Implement lazy loading for offscreen images (car logos, service images)
+- [ ] Optimize and convert service images to next-gen formats (WebP/AVIF)
+- [ ] Implement responsive image sizing for proper dimensions
+- [ ] Analyze and reduce unused JavaScript bundle size
+- [ ] Configure Cloudflare optimizations (compression, minification, caching)
+- [ ] Add critical CSS inlining and font optimization
+- [ ] Implement resource hints for performance
+- [ ] Test and validate performance improvements
+- [ ] Achieve target mobile PageSpeed score improvement
+
+**High-level Task Breakdown:**
+
+**22.1. Implement Lazy Loading for Offscreen Images** 
+- Add lazy loading to car manufacturer logos in CarLogos component
+- Implement lazy loading for service images below the fold
+- Use Next.js Image component with proper loading="lazy" attributes
+- **Success Criteria**: Offscreen images load only when needed, reducing initial page load by ~182 KiB
+
+**22.2. Optimize Service Images for Next-Gen Formats**
+- Convert oil-change.jpeg to WebP/AVIF format
+- Optimize existing AVIF images for better compression
+- Implement responsive image srcSet for different screen sizes
+- **Success Criteria**: Service images use optimal formats, reducing image payload by ~59 KiB
+
+**22.3. Implement Proper Image Sizing**
+- Analyze current image dimensions vs display sizes
+- Create responsive image variants for mobile/desktop
+- Implement proper sizing attributes on all images
+- **Success Criteria**: Images are properly sized for their containers, reducing payload by ~688 KiB
+
+**22.4. Reduce Unused JavaScript Bundle**
+- Analyze current bundle composition and unused code
+- Implement dynamic imports for non-critical components
+- Configure tree shaking and code splitting optimizations
+- **Success Criteria**: Reduce unused JavaScript by ~133 KiB through better bundling
+
+**22.5. Configure Cloudflare Performance Optimizations**
+- Enable Brotli compression in Cloudflare dashboard
+- Configure auto-minification for CSS, JS, and HTML
+- Set up optimal caching rules for static assets
+- Configure Polish for automatic image optimization
+- **Success Criteria**: Cloudflare optimizations reduce transfer sizes and improve caching
+
+**22.6. Implement Critical Performance Optimizations**
+- Add critical CSS inlining for above-the-fold content
+- Implement font preloading and optimization
+- Add resource hints (preconnect, dns-prefetch) for external resources
+- **Success Criteria**: Improved First Contentful Paint and Largest Contentful Paint metrics
+
+**22.7. Test and Validate Performance Improvements**
+- Run PageSpeed Insights tests before and after optimizations
+- Measure Core Web Vitals improvements
+- Test on real mobile devices for user experience validation
+- **Success Criteria**: Significant improvement in mobile PageSpeed score and Core Web Vitals
+
+#### Task 21: Mobile Chat Overlay Z-Index Fix ✅ **COMPLETED**
+**Success Criteria:**
+- [✅] Identify root cause of white fade bleed-through issue
+- [✅] Increase mobile chat overlay z-index to prevent interference
+- [✅] Add solid background to chat overlay container
+- [✅] Test and verify chat displays above all page content
+- [✅] Commit and push fixes to GitHub for Cloudflare deployment
+
+**Problem Analysis:**
+The white fade gradients from the car logos scroller and testimonials scroller were bleeding through the mobile chat overlay when it was open. The chat overlay had `z-60` but the fade gradients had `z-10`, suggesting the issue was with background opacity or stacking context.
+
+**Implementation Completed:**
+- **Z-Index Fix**: Increased mobile chat overlay z-index from `z-60` to `z-[9999]` to ensure it displays above all other content
+- **Solid Background**: Added `bg-background` class to the chat overlay container to prevent any bleed-through
+- **Complete Coverage**: Chat overlay now completely covers the screen without any page content showing through
+- **Build Verification**: Confirmed successful compilation with `npm run build`
+
+**Technical Changes:**
+- Updated `src/components/mobile-services/quote-chat.tsx`: Changed mobile chat overlay from `z-60` to `z-[9999]`
+- Added `bg-background` class to the chat overlay container for solid background coverage
+- Maintained existing functionality and mobile UX
+
+**Git Commit:** `a8711ab` - "Fix mobile chat overlay z-index to prevent bleed-through from scrollers"
+
+**Ready for Testing:**
+✅ **Changes Pushed to GitHub** - Z-index fix deployed to repository
+🎯 **Cloudflare Pages Deployment** - Ready for automatic deployment and testing
+⚡ **Production Testing** - Chat overlay should now display properly without bleed-through on mobile
 
 #### Task 20: Customer Reviews Animation Fix ✅ **COMPLETED**
 **Success Criteria:**

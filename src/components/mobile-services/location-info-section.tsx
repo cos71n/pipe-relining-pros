@@ -92,7 +92,7 @@ export function LocationInfoSection({ location }: LocationInfoSectionProps) {
                 width={600}
                 height={400}
                 className="w-full h-[400px] object-cover"
-                priority={false}
+                loading="lazy"
                 quality={85}
               />
             </div>

@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import Image from "next/image";
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Phone, Star, Clock, MessageCircle } from "lucide-react"
@@ -88,17 +89,13 @@ export default function LocationHero({ location }: LocationHeroProps) {
           <span className="mx-4 inline-flex items-center -space-x-4">
             {customerAvatars.map((avatar, index) => (
               <div key={index} className="size-14 rounded-full overflow-hidden border">
-                <img 
+                <Image 
                   src={avatar.src} 
                   alt={avatar.alt}
+                  width={56}
+                  height={56}
                   className="h-full w-full object-cover"
-                  onError={(e) => {
-                    console.log('Location hero image failed to load:', avatar.src);
-                    e.currentTarget.style.display = 'none';
-                  }}
-                  onLoad={() => {
-                    console.log('Location hero image loaded successfully:', avatar.src);
-                  }}
+                  loading="lazy"
                 />
               </div>
             ))}

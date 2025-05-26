@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils"
 
 export interface TestimonialAuthor {
@@ -36,17 +37,13 @@ export function TestimonialCard({
     >
       <div className="flex items-center gap-3">
         <div className="h-12 w-12 rounded-full overflow-hidden border">
-          <img 
+          <Image 
             src={author.avatar} 
             alt={author.name}
+            width={48}
+            height={48}
             className="h-full w-full object-cover"
-            onError={(e) => {
-              console.log('Image failed to load:', author.avatar);
-              e.currentTarget.style.display = 'none';
-            }}
-            onLoad={() => {
-              console.log('Image loaded successfully:', author.avatar);
-            }}
+            loading="lazy"
           />
         </div>
         <div className="flex flex-col items-start">

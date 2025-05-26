@@ -89,6 +89,7 @@ export function MobileServicesGrid() {
                     height={225}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     quality={85}
+                    loading="lazy"
                   />
                 </div>
                 <h3 className="text-xl font-semibold tracking-tight text-foreground">
