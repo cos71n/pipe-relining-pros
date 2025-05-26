@@ -447,7 +447,7 @@ function ExpandableChatWithControl({
             <Button
               variant="ghost"
               size="lg"
-              className="absolute top-4 right-3"
+              className="absolute top-2 right-2"
               onClick={onToggle}
             >
               <X className="h-6 w-6" />
