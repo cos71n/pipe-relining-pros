@@ -105,6 +105,8 @@ const Logos3 = ({
                       width={64}
                       height={48}
                       loading="lazy"
+                      sizes="64px"
+                      quality={90}
                       className="max-h-12 max-w-16 w-auto h-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>

@@ -43,7 +43,9 @@ export function TestimonialCard({
             width={48}
             height={48}
             className="h-full w-full object-cover"
+            sizes="48px"
             loading="lazy"
+            quality={90}
           />
         </div>
         <div className="flex flex-col items-start">

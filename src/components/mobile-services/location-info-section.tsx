@@ -92,6 +92,7 @@ export function LocationInfoSection({ location }: LocationInfoSectionProps) {
                 width={600}
                 height={400}
                 className="w-full h-[400px] object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 600px, 600px"
                 loading="lazy"
                 quality={85}
               />

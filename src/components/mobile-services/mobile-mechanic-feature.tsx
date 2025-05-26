@@ -13,6 +13,7 @@ function MobileMechanicFeature() {
               width={800}
               height={450}
               className="w-full h-full object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
               loading="lazy"
               quality={85}
             />

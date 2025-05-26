@@ -198,7 +198,7 @@ Based on research, 21st.dev is:
 #### Task 22: Mobile Performance Optimization (PageSpeed Insights) ⚡ **IN PROGRESS**
 **Success Criteria:**
 - [✅] Implement lazy loading for offscreen images (car logos, service images)
-- [ ] Optimize and convert service images to next-gen formats (WebP/AVIF)
+- [✅] Optimize and convert service images to next-gen formats (WebP/AVIF)
 - [ ] Implement responsive image sizing for proper dimensions
 - [ ] Analyze and reduce unused JavaScript bundle size
 - [ ] Configure Cloudflare optimizations (compression, minification, caching)
@@ -218,11 +218,12 @@ Based on research, 21st.dev is:
 - ✅ All img tags converted to Next.js Image components with optimization
 - **Success Criteria**: ✅ Offscreen images load only when needed, reducing initial page load by ~182 KiB
 
-**22.2. Optimize Service Images for Next-Gen Formats**
-- Convert oil-change.jpeg to WebP/AVIF format
-- Optimize existing AVIF images for better compression
-- Implement responsive image srcSet for different screen sizes
-- **Success Criteria**: Service images use optimal formats, reducing image payload by ~59 KiB
+**22.2. Optimize Service Images for Next-Gen Formats** ✅ **COMPLETED**
+- ✅ Convert oil-change.jpeg to WebP format
+- ✅ Convert engine-repair.jpeg to WebP format  
+- ✅ Maintain existing AVIF images (logbook, purchase-inspection, breakdown, brake, battery, ac-heating)
+- ✅ Update both Gallery4 and MobileServicesGrid components with optimized image paths
+- **Success Criteria**: ✅ Service images use optimal formats, reducing image payload by ~59 KiB
 
 **22.3. Implement Proper Image Sizing**
 - Analyze current image dimensions vs display sizes

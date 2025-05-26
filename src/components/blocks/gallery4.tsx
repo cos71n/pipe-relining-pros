@@ -200,7 +200,9 @@ const Gallery4 = ({
                         className="absolute h-full w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                         width={360}
                         height={270}
+                        sizes="(max-width: 768px) 320px, (max-width: 1024px) 360px, 360px"
                         loading="lazy"
+                        quality={85}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 flex flex-col items-start p-6 text-white md:p-8">
