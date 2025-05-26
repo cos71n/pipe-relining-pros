@@ -441,13 +441,13 @@ function ExpandableChatWithControl({
 
       {/* Chat overlay for mobile - full screen below header when open */}
       {isOpen && (
-        <div className="fixed inset-0 z-[9999] md:hidden bg-background">
-          <div className="flex flex-col bg-background h-full overflow-hidden pt-16">
+        <div className="fixed top-16 left-0 right-0 bottom-0 z-40 md:hidden bg-background">
+          <div className="flex flex-col bg-background h-full overflow-hidden">
             {children}
             <Button
               variant="ghost"
               size="lg"
-              className="absolute top-20 right-3"
+              className="absolute top-4 right-3"
               onClick={onToggle}
             >
               <X className="h-6 w-6" />

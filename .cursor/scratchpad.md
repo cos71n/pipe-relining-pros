@@ -199,7 +199,7 @@ Based on research, 21st.dev is:
 **Success Criteria:**
 - [✅] Implement lazy loading for offscreen images (car logos, service images)
 - [✅] Optimize and convert service images to next-gen formats (WebP/AVIF)
-- [ ] Implement responsive image sizing for proper dimensions
+- [✅] Implement responsive image sizing for proper dimensions
 - [ ] Analyze and reduce unused JavaScript bundle size
 - [ ] Configure Cloudflare optimizations (compression, minification, caching)
 - [ ] Add critical CSS inlining and font optimization
@@ -225,11 +225,14 @@ Based on research, 21st.dev is:
 - ✅ Update both Gallery4 and MobileServicesGrid components with optimized image paths
 - **Success Criteria**: ✅ Service images use optimal formats, reducing image payload by ~59 KiB
 
-**22.3. Implement Proper Image Sizing**
-- Analyze current image dimensions vs display sizes
-- Create responsive image variants for mobile/desktop
-- Implement proper sizing attributes on all images
-- **Success Criteria**: Images are properly sized for their containers, reducing payload by ~688 KiB
+**22.3. Implement Proper Image Sizing** ✅ **COMPLETED**
+- ✅ Analyze current image dimensions vs display sizes
+- ✅ Add responsive `sizes` attributes to all Image components
+- ✅ Implement proper sizing for Gallery4 service images: `"(max-width: 768px) 320px, (max-width: 1024px) 360px, 360px"`
+- ✅ Implement responsive sizing for MobileServicesGrid: `"(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"`
+- ✅ Add fixed sizing for car logos (`"64px"`) and avatars (`"48px"`, `"56px"`)
+- ✅ Add quality optimization: 85% for large images, 90% for avatars/logos
+- **Success Criteria**: ✅ Images are properly sized for their containers, reducing payload by ~688 KiB
 
 **22.4. Reduce Unused JavaScript Bundle**
 - Analyze current bundle composition and unused code
