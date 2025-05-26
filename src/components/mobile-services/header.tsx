@@ -11,7 +11,7 @@ import { useQuoteChat } from "@/contexts/quote-chat-context"
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const { openChat } = useQuoteChat()
+  const { openChat, isOpen: isChatOpen } = useQuoteChat()
   
   const businessPhone = process.env.NEXT_PUBLIC_BUSINESS_PHONE || "0468 358 074"
 
@@ -87,21 +87,16 @@ export default function Header() {
               <MessageCircle className="w-4 h-4 mr-1" />
               Get Quick Quote
             </Button>
-            <Button variant="outline" size="sm" asChild>
-              <a href={`tel:${businessPhone}`}>
-                <Phone className="w-4 h-4 mr-1" />
-                Call Now
-              </a>
-            </Button>
 
-            {/* Mobile Menu */}
-            <Sheet open={isOpen} onOpenChange={setIsOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="sm" className="md:hidden">
-                  <Menu className="h-5 w-5" />
-                  <span className="sr-only">Toggle menu</span>
-                </Button>
-              </SheetTrigger>
+            {/* Mobile Menu - Hide when chat is open */}
+            {!isChatOpen && (
+              <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="sm" className="md:hidden">
+                    <Menu className="h-5 w-5" />
+                    <span className="sr-only">Toggle menu</span>
+                  </Button>
+                </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <SheetDescription className="sr-only">
@@ -157,7 +152,15 @@ export default function Header() {
                   </div>
                 </div>
               </SheetContent>
-            </Sheet>
+              </Sheet>
+            )}
+
+            <Button variant="outline" size="sm" asChild>
+              <a href={`tel:${businessPhone}`}>
+                <Phone className="w-4 h-4 mr-1" />
+                Call Now
+              </a>
+            </Button>
           </div>
         </div>
       </div>
