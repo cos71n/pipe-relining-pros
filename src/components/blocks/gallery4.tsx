@@ -36,7 +36,7 @@ const data = [
       "Quick and convenient oil changes with premium oil and filters. We also perform multi-point inspections to catch potential issues early and keep your vehicle running smoothly.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/oil-change.jpeg",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/oil-change.webp",
   },
   {
     id: "logbook-service",
@@ -90,7 +90,7 @@ const data = [
       "Advanced diagnostic equipment to identify engine problems quickly. From check engine lights to performance issues, we provide expert repairs at your location.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/engine-repair.jpeg",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/engine-repair.webp",
   },
   {
     id: "ac-heating",

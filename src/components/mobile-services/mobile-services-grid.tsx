@@ -12,7 +12,7 @@ const servicesData = [
     description:
       "Quick and convenient oil changes with premium oil and filters. We also perform multi-point inspections to catch potential issues early.",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/oil-change.jpeg",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/oil-change.webp",
   },
   {
     id: "logbook-service",
