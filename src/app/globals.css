@@ -64,24 +64,7 @@ body {
   touch-action: manipulation;
 }
 
-/* Marquee animations */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-@keyframes marquee-seamless {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-50% - 1rem));
-  }
-}
+/* Marquee animations are now handled by Tailwind config */
 
 /* Mobile service business utility classes */
 @layer components {
@@ -211,28 +194,3 @@ img {
   }
 }
 
-@theme inline {
-  @keyframes marquee {
-  from {
-    transform: translateX(0);
-    }
-  to {
-    transform: translateX(-50%);
-    }
-  }
-
-  @keyframes marquee-seamless {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(calc(-50% - 0.5rem));
-    }
-  }
-}
-
-@layer utilities {
-  .animate-marquee-seamless {
-    animation: marquee-seamless var(--duration, 60s) linear infinite;
-  }
-}

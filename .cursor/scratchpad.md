@@ -22,19 +22,38 @@ Building a generic, mobile-first website template for mobile services businesses
 - Template approach allows for scalable deployment across multiple brands
 - **Security Critical**: Handle customer contact info, business data, and potentially payment information
 
-### Current Task: Location Page Template for Burleigh
-**User Request**: Build a location page template starting with `/locations/burleigh` that includes:
+### Current Task: Customer Reviews Animation Fix
+**User Request**: "The real customer reviews section on the home page and the burleigh location page are not animated. They need to be scrolling like they do on localhost."
+
+**Problem Analysis:**
+The customer reviews sections are displaying statically in production but work correctly with scrolling animation on localhost. This suggests a client-side hydration or animation initialization issue that needs investigation and resolution.
+
+### Previous Task: Quote Chat Sending Mechanism Implementation
+**User Request**: "The Get Quick quote button using the chat popout across the site - how does this actually SEND when the time comes? We need to set that up."
+
+**Current Analysis:**
+The "Get Quick Quote" chat functionality successfully collects lead data through a 4-step process:
+1. **Location** - User's suburb/location
+2. **Service** - Selected service type (Car Check, Oil & Brake Service, etc.)
+3. **Contact** - Name and phone number
+4. **Final Message** - Optional additional details
+
+**Problem Identified:**
+The chat collects all lead data in the `leadData` state object but **does not actually send it anywhere**. When the chat reaches the 'complete' step, it only:
+- Displays a summary of collected information
+- Shows a phone button for direct calling
+- **Missing**: No API call, email sending, database storage, or any mechanism to deliver the lead to the business
 
 **Specific Requirements:**
-1. **Hero Banner**: "Mobile Mechanic That Comes To You in [SUBURB]" with location-specific messaging
-2. **Location-Specific Content**: "We will come to you in [SUBURB] and work on your car where you need us to - home, work or even if you've broken down. We're a fully equipped mobile mechanic in [SUBURB], reliable and ready to help you now."
-3. **Reuse Existing Components**: Same "Get Quick Quote" and "Call Now" buttons as homepage
-4. **Google Reviews Integration**: Same Google reviews section as homepage
-5. **Template Structure**: Start with hero banner, go straight to footer initially, then layer in new components and sections one by one
-6. **SEO Optimization**: Location-specific SEO with suburb targeting
-7. **Dynamic Location Support**: Template should work for any suburb/location
+1. **Lead Data Transmission**: Implement mechanism to send collected lead data when chat completes
+2. **Delivery Method**: Determine best approach (email, SMS, webhook, database, etc.)
+3. **Error Handling**: Handle failed sends gracefully with user feedback
+4. **Confirmation**: Provide clear confirmation to user that quote request was sent
+5. **Business Notification**: Ensure business owner receives lead immediately
+6. **Data Security**: Implement secure transmission with proper validation
+7. **Template Compatibility**: Solution should work across all mobile service business types
 
-**Context**: This creates a foundation for location-based landing pages that can target specific suburbs for local SEO and provide personalized messaging for different service areas.
+**Context**: This is critical for lead generation - currently the chat provides great UX but doesn't actually deliver leads to the business, making it non-functional for its primary purpose.
 
 ### Previous Task: Car Manufacturer Logos Section ✅ **COMPLETED**
 
@@ -137,6 +156,7 @@ Based on research, 21st.dev is:
 - [✅] Performance optimization implementation (COMPLETED)
 - [✅] Component architecture and 21st.dev integration (COMPLETED)
 - [✅] Location page template development (COMPLETED)
+- [⚡] Quote chat sending mechanism implementation (IN PROGRESS)
 - [ ] Security foundation implementation
 - [ ] Cloudflare integration and configuration
 - [ ] Core template structure development
@@ -195,9 +215,102 @@ Based on research, 21st.dev is:
 - Document template pattern for easy replication ✅
 - **Success Criteria**: Template can be easily adapted for other locations like "Palm Beach", "Tweed Heads" ✅
 
-**18.6. Test and Validate Location Page** ⚡ **IN PROGRESS**
+**18.6. Test and Validate Location Page** ✅ **COMPLETED**
 - Test mobile responsiveness and user experience
 - Validate all functionality works (chat, phone calls, reviews)
+
+#### Task 19: Quote Chat Sending Mechanism Implementation ⚡ **IN PROGRESS**
+**Success Criteria:**
+- [ ] Analyze and choose optimal lead delivery method (email, SMS, webhook, etc.)
+- [ ] Implement secure API endpoint for lead submission
+- [ ] Add lead sending functionality to quote chat completion
+- [ ] Implement error handling and user feedback
+- [ ] Add confirmation messaging for successful submissions
+- [ ] Test end-to-end lead delivery process
+- [ ] Ensure security and data validation
+- [ ] Document implementation for template reuse
+
+**High-level Task Breakdown:**
+
+**19.1. Research and Choose Lead Delivery Method** ✅ **COMPLETED**
+
+**Analysis Summary:**
+After researching modern email services and Cloudflare Workers integration, I've identified the optimal solution for the mobile services template.
+
+**Recommended Solution: Resend + Twilio SMS + Next.js API Routes**
+
+**Why This Dual Approach:**
+- **Email (Resend)**: Detailed lead information with professional formatting
+- **SMS (Twilio)**: Immediate notification for time-sensitive mobile service leads
+- **Cost-Effective**: Both services have generous free tiers and reasonable pricing
+- **Reliability**: Dual delivery ensures you never miss a lead
+
+**Email Service - Resend:**
+- **Developer-First**: Built specifically for developers with simple, modern API
+- **Next.js Integration**: Seamless integration with Next.js 15 and App Router
+- **React Email Templates**: Can use React components for email templates (perfect for our component-based approach)
+- **Generous Free Tier**: 3,000 emails/month free (sufficient for most mobile service businesses)
+- **Excellent Deliverability**: Modern infrastructure with high delivery rates
+- **Cost-Effective**: $20/month for 50,000 emails (much cheaper than SendGrid)
+
+**SMS Service - Twilio:**
+- **Industry Leader**: Most reliable SMS delivery service globally
+- **Generous Free Trial**: $15 credit (covers ~500 SMS messages for testing)
+- **Cost-Effective**: $0.0075 per SMS in Australia (~$7.50 for 1,000 messages)
+- **Global Coverage**: Works in 180+ countries for international expansion
+- **Simple API**: Easy integration with Next.js API routes
+- **Instant Delivery**: SMS typically delivered within seconds
+
+**Technical Implementation Plan:**
+1. **Email Service**: Resend for detailed lead notifications with React Email templates
+2. **SMS Service**: Twilio for instant lead alerts to business owner's phone
+3. **API Route**: Next.js API route at `/api/leads/submit` for secure server-side processing
+4. **Dual Delivery**: Send both email and SMS simultaneously for maximum reliability
+5. **Email Template**: Professional React Email component with full lead details
+6. **SMS Template**: Concise alert with key info (name, service, location, phone)
+7. **Data Validation**: Zod schema validation for security
+8. **Error Handling**: Comprehensive error handling with fallback options
+9. **Rate Limiting**: Built-in protection against spam/abuse
+
+**Cost Analysis (Monthly):**
+- **Resend**: Free for 3,000 emails/month (covers most small businesses)
+- **Twilio SMS**: ~$7.50 for 1,000 SMS notifications (assuming 30-35 leads/day)
+- **Total**: Under $10/month for comprehensive lead notification system
+- **ROI**: Even one additional job per month easily covers the cost
+
+**Alternative Options Considered:**
+- **SendGrid**: More expensive, complex setup, overkill for lead forms
+- **Mailgun**: Developer-focused but more complex than Resend
+- **Cloudflare Workers + MailChannels**: Free but MailChannels discontinued their free service
+- **Nodemailer**: Requires SMTP setup, less reliable than dedicated services
+
+**Success Criteria**: ✅ Clear decision made - Resend + Next.js API Routes provides the best balance of simplicity, reliability, and cost-effectiveness for mobile service businesses
+
+**19.2. Implement Dual Email + SMS API Endpoint**
+- Create secure API route for lead data submission at `/api/leads/submit`
+- Install and configure Resend for email delivery
+- Install and configure Twilio for SMS notifications
+- Implement input validation and sanitization with Zod
+- Add rate limiting and security measures
+- Handle both email and SMS delivery with error fallbacks
+- **Success Criteria**: Functional API endpoint that sends both email and SMS notifications
+
+**19.3. Integrate Dual Delivery into Quote Chat**
+- Modify quote chat completion flow to call `/api/leads/submit` endpoint
+- Add loading states and user feedback for both email and SMS
+- Implement error handling for failed email/SMS submissions
+- Update completion messaging with dual delivery confirmation
+- Add fallback messaging if one delivery method fails
+- **Success Criteria**: Quote chat successfully sends both email and SMS with proper user feedback
+
+**19.4. Test and Validate Dual Delivery System**
+- Test end-to-end lead submission process (email + SMS)
+- Verify business receives both email and SMS notifications
+- Test error scenarios: email fails, SMS fails, both fail
+- Test rate limiting and spam protection
+- Validate security and data protection for both channels
+- Test with real phone numbers and email addresses
+- **Success Criteria**: Reliable dual delivery system with comprehensive error handling and fallbacks
 - Check SEO metadata and structured data
 - Verify performance meets standards
 - **Success Criteria**: Location page meets all performance and functionality requirements
@@ -1045,49 +1158,44 @@ All "Get Quick Quote" buttons now successfully trigger the same expandable chat 
 
 #### Task 18: Location Page Template for Burleigh ✅ **COMPLETED**
 
-**EXECUTOR MODE - Currently Working On: Task 19 - Feature Section Integration**
+**EXECUTOR MODE - Task 20: Fix Cloudflare Pages Build Configuration ⚡ **ACTIVE**
 
-#### Task 19: Feature Section Integration ✅ **COMPLETED**
+#### Task 20: Fix Cloudflare Pages Build Configuration ⚡ **ACTIVE**
 **Success Criteria:**
-- [✅] Install feature-with-image component from 21st.dev
-- [✅] Customize component for mobile mechanic business
-- [✅] Add professional mobile mechanic image
-- [✅] Integrate component into location page template
-- [✅] Ensure consistent styling with site design
+- [⚡] Update Cloudflare Pages build settings to match Next.js standalone configuration
+- [ ] Change build output directory from `out` to `.next` 
+- [ ] Verify build command is correct for standalone mode
+- [ ] Test successful deployment to Cloudflare Pages
+- [ ] Confirm all pages and functionality work in production
 
-**Implementation Completed:**
-- **Component Installation**: Successfully installed feature-with-image component from 21st.dev
-- **Mobile Mechanic Customization**: Created `MobileMechanicFeature` component with relevant content
-- **Professional Image**: Added high-quality Unsplash image of mobile mechanic working on car engine
-- **Brand Integration**: Used hero color scheme for badge styling
-- **Content Optimization**: Updated heading and description for mobile mechanic services
-- **Template Integration**: Added component to location page template after hero section
+**Problem Identified:**
+- Cloudflare Pages is configured for static export (looking for `out` directory)
+- Our Next.js config uses `output: 'standalone'` (creates `.next` directory)
+- Build fails with: "The file '/opt/buildhome/repo/out/routes-manifest.json' couldn't be found"
 
-**Technical Changes:**
-- Created `src/components/ui/feature-with-image.tsx` with base component from 21st.dev
-- Created `src/components/mobile-services/mobile-mechanic-feature.tsx` with customized version
-- Updated `src/components/mobile-services/location-page.tsx` to include new feature section
-- Used existing Badge component and class-variance-authority dependency
+**High-level Task Breakdown:**
 
-**Content Features:**
-- **Professional Image**: Mobile mechanic working on car engine (Unsplash)
-- **Branded Badge**: "Mobile Service" badge with hero color scheme
-- **Compelling Heading**: "Professional Mobile Mechanic Service"
-- **Value Proposition**: Emphasizes convenience and professional expertise
-- **Responsive Design**: Two-column layout that stacks on mobile
+**20.1. Update Cloudflare Pages Build Settings** ✅ **COMPLETED**
+- Change build output directory from `out` to `.next`
+- Verify build command is `npm run build` (correct)
+- Ensure framework preset is "Next.js" (correct)
+- **ADDITIONAL FIX**: Set `unoptimized: true` for images (required for static export)
+- **Success Criteria**: Cloudflare Pages configured for Next.js standalone mode
 
-**User Experience:**
-- Feature section appears after hero banner on all location pages
-- Professional imagery builds trust and credibility
-- Clear value proposition explains mobile service benefits
-- Consistent styling with rest of site design
-- Mobile-responsive layout for all screen sizes
+**20.2. Test Build and Deployment** ⚡ **STARTING**
+- Trigger new build with updated settings
+- Verify successful build completion
+- Test deployed site functionality
+- **Success Criteria**: Site deploys successfully and all features work
 
-**Business Value:**
-- Reinforces professional mobile mechanic positioning
-- Visual proof of service quality and expertise
-- Explains key benefits of mobile service model
-- Builds trust through professional imagery
-- Enhances location page content and engagement
+**Current Status:**
+- ✅ **Next.js Config Fixed**: `output: 'export'` with `unoptimized: true` for static export
+- ✅ **Changes Committed and Pushed**: Latest configuration pushed to GitHub (commit d3bd475)
+- ✅ **Static Export Routes Fixed**: Added `dynamic = 'force-static'` to robots.ts and sitemap.ts (commit dbfc703)
+- ✅ **Next.js Build Succeeds**: Static export generates all pages correctly in `out` directory
+- ✅ **Testimonials Animation Fixed**: Replaced inline animation with Tailwind class for production compatibility (commit 851a06e)
+- ❌ **@cloudflare/next-on-pages Fails**: Cloudflare Pages is running `npx @cloudflare/next-on-pages@1` which expects standalone build
+- 🎯 **Root Cause**: Build command incompatibility - need to change Framework preset from "Next.js" to "None"
+- ⚡ **Action Required**: Update Cloudflare Pages Framework preset to "None" to use standard `npm run build`
 
 **EXECUTOR MODE - Previously Completed: Task 18 - Location Page Template for Burleigh**
