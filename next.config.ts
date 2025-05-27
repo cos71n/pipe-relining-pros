@@ -144,8 +144,18 @@ const nextConfig: NextConfig = {
 
   // Performance optimizations
   experimental: {
-    // Enable optimized package imports
-    optimizePackageImports: ['@radix-ui/react-icons', 'lucide-react'],
+    // Enable optimized package imports for better tree shaking
+    optimizePackageImports: [
+      '@radix-ui/react-icons', 
+      'lucide-react',
+      '@radix-ui/react-avatar',
+      '@radix-ui/react-dialog',
+      '@radix-ui/react-dropdown-menu',
+      '@radix-ui/react-navigation-menu',
+      '@radix-ui/react-select',
+      '@radix-ui/react-separator',
+      '@radix-ui/react-slot'
+    ],
   },
 
   // Turbopack configuration (stable in Next.js 15)
@@ -166,14 +176,44 @@ const nextConfig: NextConfig = {
         ...config.optimization,
         splitChunks: {
           chunks: 'all',
+          maxInitialRequests: 25,
+          maxAsyncRequests: 25,
           cacheGroups: {
             default: false,
             vendors: false,
-            // Vendor chunk for third-party libraries
+            // React and React DOM
+            react: {
+              name: 'react',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+              priority: 40,
+            },
+            // Radix UI components
+            radix: {
+              name: 'radix',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/]@radix-ui[\\/]/,
+              priority: 35,
+            },
+            // Embla carousel (heavy component)
+            embla: {
+              name: 'embla',
+              chunks: 'async',
+              test: /[\\/]node_modules[\\/]embla-carousel/,
+              priority: 30,
+            },
+            // Lucide icons
+            lucide: {
+              name: 'lucide',
+              chunks: 'all',
+              test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
+              priority: 25,
+            },
+            // Other vendor libraries
             vendor: {
               name: 'vendor',
               chunks: 'all',
-              test: /node_modules/,
+              test: /[\\/]node_modules[\\/]/,
               priority: 20,
             },
             // Common chunk for shared code
@@ -187,6 +227,9 @@ const nextConfig: NextConfig = {
             },
           },
         },
+        // Improve tree shaking
+        usedExports: true,
+        sideEffects: false,
       }
     }
 
