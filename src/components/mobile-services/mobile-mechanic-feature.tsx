@@ -10,12 +10,12 @@ function MobileMechanicFeature() {
             <Image
               src="https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/border-van.jpg"
               alt="Border Mobile Mechanical van - Professional mobile mechanic service"
-              width={800}
-              height={450}
+              width={600}
+              height={338}
               className="w-full h-full object-cover"
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 800px"
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 600px"
               loading="lazy"
-              quality={85}
+              quality={80}
             />
           </div>
           <div className="flex gap-4 pl-0 lg:pl-20 flex-col flex-1">

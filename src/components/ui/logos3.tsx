@@ -102,11 +102,11 @@ const Logos3 = ({
                     <Image
                       src={logo.image}
                       alt={logo.description}
-                      width={64}
-                      height={48}
+                      width={48}
+                      height={36}
                       loading="lazy"
-                      sizes="64px"
-                      quality={90}
+                      sizes="48px"
+                      quality={80}
                       className="max-h-12 max-w-16 w-auto h-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                     />
                   </div>

@@ -89,12 +89,12 @@ export function LocationInfoSection({ location }: LocationInfoSectionProps) {
               <Image
                 src="https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/border-van.jpg"
                 alt="Border Mobile Mechanical van - Professional mobile mechanic service in {location}"
-                width={600}
-                height={400}
+                width={480}
+                height={320}
                 className="w-full h-[400px] object-cover"
-                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 600px, 600px"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 480px, 480px"
                 loading="lazy"
-                quality={85}
+                quality={80}
               />
             </div>
             

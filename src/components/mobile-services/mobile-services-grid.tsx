@@ -85,11 +85,11 @@ export function MobileServicesGrid() {
                   <Image
                     src={service.image}
                     alt={service.title}
-                    width={400}
-                    height={225}
+                    width={320}
+                    height={180}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    quality={85}
+                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 280px"
+                    quality={75}
                     loading="lazy"
                   />
                 </div>
