@@ -156,6 +156,19 @@ const nextConfig: NextConfig = {
       '@radix-ui/react-separator',
       '@radix-ui/react-slot'
     ],
+    // Reduce polyfills for modern browsers
+    forceSwcTransforms: true,
+  },
+
+  // Configure for modern browsers to reduce polyfills
+  env: {
+    BROWSERSLIST_ENV: 'modern',
+  },
+
+  // Compiler optimizations for modern browsers
+  compiler: {
+    // Remove console.log in production
+    removeConsole: process.env.NODE_ENV === 'production',
   },
 
   // Turbopack configuration (stable in Next.js 15)
@@ -170,6 +183,40 @@ const nextConfig: NextConfig = {
 
   // Webpack optimizations for mobile performance
   webpack: (config, { dev, isServer }) => {
+    // Target modern browsers to reduce polyfills
+    if (!dev && !isServer) {
+      config.target = ['web', 'es2020'];
+      
+      // Use custom minimal polyfills for modern browsers
+      const originalEntry = config.entry;
+      config.entry = async () => {
+        const entries = await originalEntry();
+        
+        // Replace default polyfills with our minimal version
+        if (entries['polyfills']) {
+          entries['polyfills'] = ['./src/polyfills.ts'];
+        }
+        
+        return entries;
+      };
+      
+      // Reduce polyfills by targeting modern environments
+      config.resolve = {
+        ...config.resolve,
+        alias: {
+          ...config.resolve.alias,
+          // Reduce core-js polyfills for modern browsers
+          'core-js/modules/es.array.at': false,
+          'core-js/modules/es.array.flat': false,
+          'core-js/modules/es.array.flat-map': false,
+          'core-js/modules/es.object.from-entries': false,
+          'core-js/modules/es.object.has-own': false,
+          'core-js/modules/es.string.trim-start': false,
+          'core-js/modules/es.string.trim-end': false,
+        },
+      };
+    }
+
     // Optimize for production
     if (!dev && !isServer) {
       config.optimization = {

@@ -1,0 +1,24 @@
+[modern]
+# Modern browsers that support ES2020+ features
+# This reduces polyfills for Array.prototype.at, Array.prototype.flat, etc.
+Chrome >= 87
+Firefox >= 78
+Safari >= 14
+Edge >= 87
+iOS >= 14
+ChromeAndroid >= 87
+not IE 11
+not dead
+not < 0.25%
+
+[production]
+# Slightly broader support for production
+Chrome >= 80
+Firefox >= 75
+Safari >= 13
+Edge >= 80
+iOS >= 13
+ChromeAndroid >= 80
+not IE 11
+not dead
+not < 0.5% 

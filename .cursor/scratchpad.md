@@ -202,6 +202,27 @@ Based on research, 21st.dev is:
 
 ## Current Sprint / Active Tasks
 
+#### Task 24: Modern Browser Optimization (Reduce Legacy JavaScript) ⚡ **IN PROGRESS**
+**Success Criteria:**
+- [✅] Configure browserslist for modern browsers (Chrome 87+, Firefox 78+, Safari 14+)
+- [✅] Update TypeScript target to ES2020
+- [✅] Add modern browser webpack configuration
+- [✅] Create custom minimal polyfills file
+- [ ] Achieve 13 KiB reduction in legacy JavaScript polyfills
+- [ ] Test and validate modern browser optimizations
+
+**PageSpeed Insights Issue:**
+- **Target**: Reduce 13 KiB of legacy JavaScript polyfills
+- **Polyfills Identified**: Array.prototype.at, Array.prototype.flat, Array.prototype.flatMap, Object.fromEntries, Object.hasOwn, String.prototype.trimStart/trimEnd
+- **Current Status**: Configuration implemented, testing polyfill reduction
+
+**Optimizations Implemented:**
+- **Browserslist Configuration**: Targets Chrome 87+, Firefox 78+, Safari 14+, excludes IE 11
+- **TypeScript Target**: Updated from ES2017 to ES2020
+- **Webpack Configuration**: ES2020 target, modern browser aliases
+- **Custom Polyfills**: Minimal polyfills file for modern browsers
+- **SWC Transforms**: Force modern transforms with forceSwcTransforms
+
 #### Task 23: JavaScript Bundle Optimization (PageSpeed Insights Critical Issue) ✅ **COMPLETED**
 **Success Criteria:**
 - [✅] Analyze current bundle composition and identify unused code
