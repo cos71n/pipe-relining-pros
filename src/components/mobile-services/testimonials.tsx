@@ -16,7 +16,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("christopher.png")
       },
-      text: "Ben is an absolute legend. Saved our car from the side of the road, and he did it with a smile even though it was a prick of a job. Good old fashioned service. Highly recommend 👍"
+      text: "The team are absolute legends. Fixed our blocked drain that had been causing problems for months, and they did it with a smile even though it was a challenging job. Good old fashioned service. Highly recommend 👍"
     },
     {
       author: {
@@ -24,7 +24,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("liah.png")
       },
-      text: "Huge thank you to Ben for coming to my rescue! My car battery died unexpectedly, and he was kind enough to come out and replace it on just an hour's notice. Super professional, fast, and friendly—truly grateful for the help!"
+      text: "Huge thank you for coming to my rescue! Our sewer pipe collapsed unexpectedly, and they were kind enough to come out and provide pipe relining on just a few hours' notice. Super professional, fast, and friendly—truly grateful for the help!"
     },
     {
       author: {
@@ -32,7 +32,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("maddison.png")
       },
-      text: "Called up for a non urgent job, and Ben was able to provide a diagnosis on the same day. A prompt communicator, who explained everything thoroughly (to someone who doesn't know anything about cars!!). Ben was able to fix the issue straight away the next day, and honestly my car has never driven better! Super reasonable price, with a breakdown explained bit by bit. Would one hundred percent recommend this service!!"
+      text: "Called up for a drain inspection, and they were able to provide a full CCTV assessment on the same day. Prompt communicators, who explained everything thoroughly (to someone who doesn't know anything about plumbing!!). They were able to fix the pipe relining issue straight away the next day, and honestly our drainage has never worked better! Super reasonable price, with a breakdown explained bit by bit. Would one hundred percent recommend this service!!"
     },
     {
       author: {
@@ -40,7 +40,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("robb.png")
       },
-      text: "The boys came out to me on time as usual and had the entire tune and service new plugs etc done in just over an hour👌100% recommend to anyone and everyone. Only $45 more than the place I took it to last time and they came to me=Legends."
+      text: "The team came out to me on time as usual and had the entire pipe relining job done in just over two hours👌100% recommend to anyone and everyone. Only $200 more than the quote I got elsewhere and they came to me with no digging required=Legends."
     },
     {
       author: {
@@ -48,7 +48,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("sophie.png")
       },
-      text: "Ben was amazing! Was driving to Brisbane in the rain and my windscreen wipers stopped working. Called him to help and within an hour or so he was at my door with the part sourced (which I was sure would've taken days to find as it's not a common car). Super honest bloke with great work and price to match!! Highly recommend"
+      text: "They were amazing! Had a major blockage that was causing sewage backup and called them to help. Within an hour they were at my door with the high-pressure water jetting equipment (which I was sure would've taken days to organise). Super honest team with great work and price to match!! Highly recommend"
     },
     {
       author: {
@@ -56,7 +56,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("thomas.png")
       },
-      text: "Ben was available within two hours of me contacting him for a pre-purchase inspection, and he did a comprehensive check of the car. He found a few issues and was happy to explain them patiently to me and the seller. He also gave me advice on how I should proceed when it comes to servicing and fixing the issues, which allowed me to negotiate the price fairly and drive away with an otherwise fantastic used car. I am impressed and thankful for the great service."
+      text: "They were available within two hours of me contacting them for a drain inspection before buying our house, and they did a comprehensive CCTV check of all the pipes. They found a few issues and were happy to explain them patiently to me and the seller. They also gave me advice on how I should proceed with pipe relining, which allowed me to negotiate the price fairly and buy the house with confidence. Impressed and thankful for the great service."
     },
     {
       author: {
@@ -64,7 +64,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("salome.png")
       },
-      text: "Battery dead this morning and Ben manage to organise a repair at 2:30pm the same day ! Life saver! Professional and reliable ! Totally recommended !"
+      text: "Blocked drain this morning and they managed to organise a repair at 2:30pm the same day! Life saver! Professional and reliable! Totally recommended!"
     },
     {
       author: {
@@ -72,7 +72,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("ken.png")
       },
-      text: "Ben was great. He did a service and brake replacement on my Mercedes. He was early, well prepared and friendly. His work was faultless and surprised me and how proficient he was considering the car wasn't on a hoist. Would highly recommend his business and will use again in the future."
+      text: "They were great. They did a full pipe relining job on our damaged sewer line. They were early, well prepared and friendly. Their work was faultless and surprised me at how efficient they were considering no excavation was required. Would highly recommend their business and will use again in the future."
     },
     // Duplicate the reviews for better infinite scroll effect
     {
@@ -81,7 +81,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("christopher.png")
       },
-      text: "Ben is an absolute legend. Saved our car from the side of the road, and he did it with a smile even though it was a prick of a job. Good old fashioned service. Highly recommend 👍"
+      text: "The team are absolute legends. Fixed our blocked drain that had been causing problems for months, and they did it with a smile even though it was a challenging job. Good old fashioned service. Highly recommend 👍"
     },
     {
       author: {
@@ -89,7 +89,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("liah.png")
       },
-      text: "Huge thank you to Ben for coming to my rescue! My car battery died unexpectedly, and he was kind enough to come out and replace it on just an hour's notice. Super professional, fast, and friendly—truly grateful for the help!"
+      text: "Huge thank you for coming to my rescue! Our sewer pipe collapsed unexpectedly, and they were kind enough to come out and provide pipe relining on just a few hours' notice. Super professional, fast, and friendly—truly grateful for the help!"
     },
     {
       author: {
@@ -97,7 +97,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("maddison.png")
       },
-      text: "Called up for a non urgent job, and Ben was able to provide a diagnosis on the same day. A prompt communicator, who explained everything thoroughly (to someone who doesn't know anything about cars!!). Ben was able to fix the issue straight away the next day, and honestly my car has never driven better! Super reasonable price, with a breakdown explained bit by bit. Would one hundred percent recommend this service!!"
+      text: "Called up for a drain inspection, and they were able to provide a full CCTV assessment on the same day. Prompt communicators, who explained everything thoroughly (to someone who doesn't know anything about plumbing!!). They were able to fix the pipe relining issue straight away the next day, and honestly our drainage has never worked better! Super reasonable price, with a breakdown explained bit by bit. Would one hundred percent recommend this service!!"
     },
     {
       author: {
@@ -105,7 +105,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("robb.png")
       },
-      text: "The boys came out to me on time as usual and had the entire tune and service new plugs etc done in just over an hour👌100% recommend to anyone and everyone. Only $45 more than the place I took it to last time and they came to me=Legends."
+      text: "The team came out to me on time as usual and had the entire pipe relining job done in just over two hours👌100% recommend to anyone and everyone. Only $200 more than the quote I got elsewhere and they came to me with no digging required=Legends."
     },
     {
       author: {
@@ -113,7 +113,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("sophie.png")
       },
-      text: "Ben was amazing! Was driving to Brisbane in the rain and my windscreen wipers stopped working. Called him to help and within an hour or so he was at my door with the part sourced (which I was sure would've taken days to find as it's not a common car). Super honest bloke with great work and price to match!! Highly recommend"
+      text: "They were amazing! Had a major blockage that was causing sewage backup and called them to help. Within an hour they were at my door with the high-pressure water jetting equipment (which I was sure would've taken days to organise). Super honest team with great work and price to match!! Highly recommend"
     },
     {
       author: {
@@ -121,7 +121,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("thomas.png")
       },
-      text: "Ben was available within two hours of me contacting him for a pre-purchase inspection, and he did a comprehensive check of the car. He found a few issues and was happy to explain them patiently to me and the seller. He also gave me advice on how I should proceed when it comes to servicing and fixing the issues, which allowed me to negotiate the price fairly and drive away with an otherwise fantastic used car. I am impressed and thankful for the great service."
+      text: "They were available within two hours of me contacting them for a drain inspection before buying our house, and they did a comprehensive CCTV check of all the pipes. They found a few issues and were happy to explain them patiently to me and the seller. They also gave me advice on how I should proceed with pipe relining, which allowed me to negotiate the price fairly and buy the house with confidence. Impressed and thankful for the great service."
     },
     {
       author: {
@@ -129,7 +129,7 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("salome.png")
       },
-      text: "Battery dead this morning and Ben manage to organise a repair at 2:30pm the same day ! Life saver! Professional and reliable ! Totally recommended !"
+      text: "Blocked drain this morning and they managed to organise a repair at 2:30pm the same day! Life saver! Professional and reliable! Totally recommended!"
     },
     {
       author: {
@@ -137,14 +137,14 @@ export function Testimonials() {
         handle: "@google_review",
         avatar: getReviewImageUrl("ken.png")
       },
-      text: "Ben was great. He did a service and brake replacement on my Mercedes. He was early, well prepared and friendly. His work was faultless and surprised me and how proficient he was considering the car wasn't on a hoist. Would highly recommend his business and will use again in the future."
+      text: "They were great. They did a full pipe relining job on our damaged sewer line. They were early, well prepared and friendly. Their work was faultless and surprised me at how efficient they were considering no excavation was required. Would highly recommend their business and will use again in the future."
     }
   ]
 
   return (
     <TestimonialsSection
-      title="Real Customer Comments"
-      description="We have 100's of satisfied customers across the Tweed & Gold Coast region. See what some of them said in these real Google reviews."
+      title="Customer Comments"
+      description="We have 100's of satisfied customers across the Sydney region. See what some of them said in these comments."
       testimonials={mobileServicesTestimonials}
       className="bg-muted/30"
     />

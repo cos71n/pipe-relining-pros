@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useState, FormEvent, useEffect } from "react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { MessageCircle, Phone, X, Wrench, CornerDownLeft } from "lucide-react"
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat-bubble"
@@ -24,7 +25,7 @@ import {
 import { useQuoteChat } from "@/contexts/quote-chat-context"
 import { cn } from "@/lib/utils"
 
-type ChatStep = 'location' | 'service' | 'contact' | 'final' | 'complete'
+type ChatStep = 'location' | 'contact' | 'final' | 'complete'
 
 interface LeadData {
   location: string
@@ -54,21 +55,15 @@ const QUOTE_STEPS = [
   },
   {
     step: 2,
-    title: "Service",
-    description: "What do you need?",
-    chatStep: 'service' as ChatStep,
+    title: "Details",
+    description: "Anything I should know?",
+    chatStep: 'final' as ChatStep,
   },
   {
     step: 3,
     title: "Contact",
     description: "Your details",
     chatStep: 'contact' as ChatStep,
-  },
-  {
-    step: 4,
-    title: "Complete",
-    description: "Get your quote",
-    chatStep: 'final' as ChatStep,
   },
 ]
 
@@ -90,7 +85,7 @@ export function QuoteChat() {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      content: "Hi, Ben here. Let me know a little about your car. Your message comes straight to my phone and I'll send your quote ASAP",
+      content: "Hi, Ben here. Let me know a little about your pipe relining needs. Your message comes straight to my phone and I'll send your quote ASAP.",
       sender: "ai",
     },
     {
@@ -118,7 +113,7 @@ export function QuoteChat() {
       setMessages([
         {
           id: 1,
-          content: "Hi, Ben here. Let me know a little about your car. Your message comes straight to my phone and I'll send your quote ASAP",
+          content: "Hi, Ben here. Let me know a little about your pipe relining needs. Your message comes straight to my phone and I'll send your quote ASAP.",
           sender: "ai",
         },
         {
@@ -139,13 +134,7 @@ export function QuoteChat() {
     }])
   }
 
-  const handleServiceSelect = (service: string) => {
-    setLeadData(prev => ({ ...prev, service }))
-    addMessage(service, 'user')
-    addMessage("Great choice! Now I need your contact details.", 'ai')
-    addMessage("👤 What's your name?", 'ai')
-    setCurrentStep('contact')
-  }
+
 
   const handleSubmit = (e?: FormEvent) => {
     e?.preventDefault()
@@ -158,47 +147,51 @@ export function QuoteChat() {
     switch (currentStep) {
       case 'location':
         setLeadData(prev => ({ ...prev, location: userInput }))
-        addMessage("Perfect! Now, what service do you need?", 'ai')
-        setCurrentStep('service')
+        addMessage("Perfect! Now, anything else I should know? The more information you give me about your needs the quicker & more accurate the quote (Optional)", 'ai')
+        setCurrentStep('final')
+        break
+
+      case 'final':
+        setLeadData(prev => ({ ...prev, finalMessage: userInput }))
+        addMessage("Great! Now I need your contact details.", 'ai')
+        addMessage("👤 What's your name?", 'ai')
+        setCurrentStep('contact')
         break
 
       case 'contact':
         if (!leadData.name) {
           setLeadData(prev => ({ ...prev, name: userInput }))
+          addMessage("📧 What's your email address?", 'ai')
+        } else if (!leadData.email) {
+          setLeadData(prev => ({ ...prev, email: userInput }))
           addMessage("📱 What's your phone number?", 'ai')
         } else if (!leadData.phone) {
           setLeadData(prev => ({ ...prev, phone: userInput }))
-          addMessage("Last one: anything else I should know? If you know the Make and Model of your car please include it too (Optional)", 'ai')
-          setCurrentStep('final')
+          addMessage("Perfect! I've got your details. I'll get back to you ASAP.", 'ai')
+          addMessage(`📋 Summary:\n📍 Location: ${leadData.location}\n👤 Name: ${leadData.name}\n📧 Email: ${leadData.email}\n📱 Phone: ${leadData.phone}${leadData.finalMessage ? `\n💬 Message: ${leadData.finalMessage}` : ''}`, 'ai')
+          addMessage("PHONE_BUTTON", 'ai')
+          setCurrentStep('complete')
         }
-        break
-
-      case 'final':
-        setLeadData(prev => ({ ...prev, finalMessage: userInput }))
-        addMessage("Perfect! I've got your details. I'll get back to you ASAP.", 'ai')
-        addMessage(`📋 Summary:\n📍 Location: ${leadData.location}\n🔧 Service: ${leadData.service}\n👤 Name: ${leadData.name}\n📱 Phone: ${leadData.phone}${userInput ? `\n💬 Message: ${userInput}` : ''}`, 'ai')
-        addMessage("PHONE_BUTTON", 'ai')
-        setCurrentStep('complete')
         break
     }
   }
 
   const handleSkipFinal = () => {
     addMessage("No additional message", 'user')
-    addMessage("Perfect! I've got your details. I'll get back to you ASAP.", 'ai')
-    addMessage(`📋 Summary:\n📍 Location: ${leadData.location}\n🔧 Service: ${leadData.service}\n👤 Name: ${leadData.name}\n📱 Phone: ${leadData.phone}`, 'ai')
-    addMessage("PHONE_BUTTON", 'ai')
-    setCurrentStep('complete')
+    addMessage("Great! Now I need your contact details.", 'ai')
+    addMessage("👤 What's your name?", 'ai')
+    setCurrentStep('contact')
   }
 
   const getInputPlaceholder = () => {
     switch (currentStep) {
-      case 'location': return "e.g. Tweed Heads, Burleigh, Helensvale..."
+      case 'location': return "e.g. Bondi, Wetherill Park, Cronulla..."
+      case 'final': return "e.g. Blocked drain, cracked pipe in bathroom..."
       case 'contact': 
         if (!leadData.name) return "Enter your full name"
+        if (!leadData.email) return "Enter your email address"
         if (!leadData.phone) return "Enter your phone number"
         return ""
-      case 'final': return "e.g. Toyota Camry, strange noise when braking..."
       default: return "Type your message..."
     }
   }
@@ -207,10 +200,9 @@ export function QuoteChat() {
   const getCurrentStepNumber = () => {
     const stepMap = {
       'location': 1,
-      'service': 2,
+      'final': 2,
       'contact': 3,
-      'final': 4,
-      'complete': 4
+      'complete': 3
     }
     return stepMap[currentStep]
   }
@@ -219,9 +211,8 @@ export function QuoteChat() {
   const isStepCompleted = (stepNumber: number) => {
     switch (stepNumber) {
       case 1: return !!leadData.location
-      case 2: return !!leadData.service
-      case 3: return !!leadData.phone // Contact is complete when we have phone (no email needed)
-      case 4: return currentStep === 'complete'
+      case 2: return !!leadData.finalMessage || currentStep === 'contact' || currentStep === 'complete'
+      case 3: return !!leadData.phone && !!leadData.email // Contact is complete when we have phone and email
       default: return false
     }
   }
@@ -240,7 +231,7 @@ export function QuoteChat() {
           <h1 className="text-xl font-semibold">Get A Quick Quote</h1>
         </div>
         <p className="text-sm text-muted-foreground mb-3">
-          Quick 4-step process to get your quote
+          Quick 3-step process to get your quote
         </p>
         
         {/* Progress indicator - Replace dots with stepper */}
@@ -286,9 +277,9 @@ export function QuoteChat() {
                 src={
                   message.sender === "user"
                     ? undefined
-                    : "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/border-icon.png"
+                    : "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/pipe-relining-pros-logo.png"
                 }
-                fallback={message.sender === "user" ? "You" : "BMM"}
+                fallback={message.sender === "user" ? "You" : "PRP"}
               />
               <ChatBubbleMessage
                 variant={message.sender === "user" ? "sent" : "received"}
@@ -312,22 +303,7 @@ export function QuoteChat() {
             </ChatBubble>
           ))}
 
-          {/* Service selection buttons */}
-          {currentStep === 'service' && (
-            <div className="flex flex-col gap-2 px-4">
-              {SERVICES.map((service) => (
-                <Button
-                  key={service}
-                  variant="outline"
-                  size="sm"
-                  onClick={() => handleServiceSelect(service)}
-                  className="text-left justify-start text-xs h-auto py-2 whitespace-normal"
-                >
-                  {service}
-                </Button>
-              ))}
-            </div>
-          )}
+
         </ChatMessageList>
       </ExpandableChatBody>
 
@@ -343,7 +319,7 @@ export function QuoteChat() {
               onSubmit={() => handleSubmit()}
               placeholder={getInputPlaceholder()}
               className="min-h-12 resize-none rounded-lg bg-background border-0 p-3 shadow-none focus-visible:ring-0"
-              disabled={currentStep === 'service'}
+              disabled={false}
             />
             <div className="flex items-center p-3 pt-0 justify-between">
               {currentStep === 'final' && (
@@ -361,7 +337,7 @@ export function QuoteChat() {
                 type="submit" 
                 size="sm" 
                 className="ml-auto gap-1.5 bg-hero hover:bg-hero/90"
-                disabled={currentStep === 'service' || !input.trim()}
+                disabled={!input.trim()}
               >
                 Send
                 <CornerDownLeft className="size-3.5" />

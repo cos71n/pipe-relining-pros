@@ -1,6 +1,9 @@
 "use client"
 
 import Hero from "@/components/mobile-services/hero"
+import PipeReliningInfo from "@/components/mobile-services/pipe-relining-info"
+import PipeReliningProcess from "@/components/mobile-services/pipe-relining-process"
+import PipeReliningInfoTabs from "@/components/mobile-services/pipe-relining-info-tabs"
 import { WhyChooseUs } from "@/components/mobile-services/why-choose-us"
 import { ServiceArea } from "@/components/mobile-services/service-area"
 import { Contact } from "@/components/mobile-services/contact"
@@ -10,10 +13,6 @@ import { QuoteChatProvider, useQuoteChat } from "@/contexts/quote-chat-context"
 import dynamic from "next/dynamic"
 
 // Dynamic imports for heavy components with carousel dependencies
-const CarLogos = dynamic(() => import("@/components/mobile-services/car-logos").then(mod => ({ default: mod.CarLogos })), {
-  loading: () => <div className="py-16 md:py-20"><div className="container mx-auto px-4"><div className="h-16 bg-muted/50 rounded animate-pulse"></div></div></div>,
-  ssr: false
-})
 
 const Services = dynamic(() => import("@/components/mobile-services/services").then(mod => ({ default: mod.Services })), {
   loading: () => <div className="py-16 md:py-20"><div className="container mx-auto px-4"><div className="h-96 bg-muted/50 rounded animate-pulse"></div></div></div>,
@@ -44,17 +43,23 @@ function PageContent() {
         {/* Hero Section */}
         <Hero />
         
-        {/* Car Logos Section - Dynamically loaded */}
-        <CarLogos />
+        {/* Pipe Relining Info Section - SEO Content */}
+        <PipeReliningInfo />
         
         {/* Services Overview - Dynamically loaded */}
         <Services />
+        
+        {/* Pipe Relining Process Section */}
+        <PipeReliningProcess />
         
         {/* Testimonials - Dynamically loaded */}
         <Testimonials />
         
         {/* Why Choose Us */}
         <WhyChooseUs />
+        
+        {/* Pipe Relining Info Tabs - How It Works, Types, FAQs */}
+        <PipeReliningInfoTabs />
         
         {/* Service Area */}
         <ServiceArea />

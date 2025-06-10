@@ -21,7 +21,7 @@ export default function Header() {
 
   const navigationItems = [
     { href: "#services", label: "Services" },
-    { href: "#about", label: "About" },
+    { href: "#our-process", label: "About" },
     { href: "#service-area", label: "Locations" },
   ]
 
@@ -47,15 +47,15 @@ export default function Header() {
     }`}>
       {/* Main navigation */}
       <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <Image
-              src="https://static.wixstatic.com/media/b9ada1_4a29515a6c4241b89fd8e41292065500~mv2.png/v1/fill/w_247,h_91,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/BorderMobileMechanic_LOGO_v2_PNG.png"
-              alt="Border Mobile Mechanic"
-              width={140}
-              height={52}
-              className="h-12 w-auto"
+              src="https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/pipe-relining-pros-logo.png"
+              alt="Pipe Relining Pros"
+              width={200}
+              height={75}
+              className="h-16 w-auto"
               priority
             />
           </Link>
@@ -106,11 +106,11 @@ export default function Header() {
                 <div className="flex flex-col space-y-4 mt-4">
                   <div className="flex items-center space-x-2 pb-4 border-b">
                     <Image
-                      src="https://static.wixstatic.com/media/b9ada1_4a29515a6c4241b89fd8e41292065500~mv2.png/v1/fill/w_247,h_91,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/BorderMobileMechanic_LOGO_v2_PNG.png"
-                      alt="Border Mobile Mechanic"
-                      width={120}
-                      height={44}
-                      className="h-10 w-auto"
+                      src="https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/pipe-relining-pros-logo.png"
+                      alt="Pipe Relining Pros"
+                      width={160}
+                      height={60}
+                      className="h-14 w-auto"
                     />
                   </div>
                   

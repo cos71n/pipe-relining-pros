@@ -12,11 +12,11 @@
   --accent: #ed7611;
   --accent-foreground: #ffffff;
   
-  /* Hero color - distinctive green for mobile services */
-  --hero: rgb(151, 199, 88);
+  /* Hero color - distinctive blue for pipe relining services */
+  --hero: rgb(87, 135, 211);
   --hero-foreground: #ffffff;
-  --hero-muted: rgba(151, 199, 88, 0.1);
-  --hero-border: rgba(151, 199, 88, 0.2);
+      --hero-muted: rgba(87, 135, 211, 0.1);
+    --hero-border: rgba(87, 135, 211, 0.2);
 
   /* Semantic colors */
   --success: #10b981;
@@ -145,10 +145,10 @@ img {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --hero: 142 76% 73%;
+    --hero: 215 58% 58%;
     --hero-foreground: 355 7% 97%;
-    --hero-muted: 142 76% 85%;
-    --hero-border: 142 76% 60%;
+    --hero-muted: 215 58% 85%;
+    --hero-border: 215 58% 48%;
   }
   .dark {
     --background: 222.2 84% 4.9%;
@@ -175,10 +175,10 @@ img {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
-    --hero: 142 76% 73%;
+    --hero: 215 58% 58%;
     --hero-foreground: 355 7% 97%;
-    --hero-muted: 142 76% 85%;
-    --hero-border: 142 76% 60%;
+    --hero-muted: 215 58% 85%;
+    --hero-border: 215 58% 48%;
   }
   .theme {
     --animate-marquee: marquee var(--duration) linear infinite;

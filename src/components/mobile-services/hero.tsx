@@ -4,7 +4,7 @@ import React from 'react';
 import Image from "next/image";
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Phone, MessageCircle, Star, Clock } from "lucide-react"
+import { Phone, MessageCircle, Star } from "lucide-react"
 import { useQuoteChat } from "@/contexts/quote-chat-context"
 
 export default function Hero() {
@@ -43,25 +43,13 @@ export default function Hero() {
     <section className="py-12 md:py-32">
       <div className="container text-center mx-auto">
         <div className="mx-auto flex max-w-screen-lg flex-col gap-4 md:gap-6 items-center">
-          {/* Trust Indicators - Preserved from original */}
-          <div className="flex flex-wrap justify-center gap-2 mb-2 md:mb-4">
-            <Badge variant="secondary" className="bg-orange-100 text-orange-800 border-orange-200">
-              <Clock className="w-3 h-3 mr-1" />
-              Same Day Service
-            </Badge>
-          </div>
-
           {/* Modern Hero Heading */}
           <h1 className="text-3xl font-extrabold lg:text-6xl text-center">
-            <span className="text-foreground">Mobile Mechanic</span>{" "}
-            That Comes To You{" "}
-            <span className="text-foreground">On The Gold Coast & Northern NSW</span>
+            <span className="text-foreground">Pipe Relining Services in Sydney</span>
           </h1>
           
           <p className="text-balance text-muted-foreground lg:text-lg text-center max-w-4xl">
-            Skip the hassle of visiting a workshop, or paying to get your car towed somewhere. Get expert service 
-            wherever your car is with our fully equipped mobile mechanic service. 
-            Convenient and reliable service in the Gold Coast & Northern NSW regions.
+            Get the best pipe relining Sydney has to offer. We&apos;ll repair cracked or damaged pipes without having to dig anything up. Get a quick quote now to find out exactly what your pipe relining project in Sydney will cost and how long it will take.
           </p>
         </div>
 

@@ -4,55 +4,47 @@ import { Button } from "@/components/ui/button"
 import { MessageCircle } from "lucide-react"
 import { useQuoteChat } from "@/contexts/quote-chat-context"
 
-// Using the same services data as the homepage Gallery4 component
+// Pipe relining services data for Sydney
 const servicesData = [
   {
-    id: "oil-change",
-    title: "Oil Change & Maintenance",
+    id: "pipe-relining",
+    title: "Pipe Relining",
     description:
-      "Quick and convenient oil changes with premium oil and filters. We also perform multi-point inspections to catch potential issues early.",
+      "Advanced trenchless pipe relining technology that repairs damaged pipes without excavation. Long-lasting solution with 50+ year lifespan.",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/oil-change.webp",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/pipe-relining.jpg",
   },
   {
-    id: "logbook-service",
-    title: "Logbook Service",
+    id: "blocked-drains",
+    title: "Blocked Drains",
     description:
-      "Complete manufacturer-specified logbook servicing to maintain your warranty. We follow all service schedules and use genuine parts.",
+      "Fast and effective blocked drain clearing using high-pressure water jetting and specialist equipment. Same-day service available.",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/logbook.avif",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/blocked-drains.jpg",
   },
   {
-    id: "purchase-inspection",
-    title: "Purchase Inspections",
+    id: "drain-inspections",
+    title: "Drain Inspections",
     description:
-      "Comprehensive pre-purchase vehicle inspections to help you make informed buying decisions. We check all major systems.",
+      "Comprehensive CCTV drain inspections to identify blockages, cracks, and structural issues. Detailed reports with repair recommendations.",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/purchase-inspection.avif",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/drain-inspections.jpg",
   },
   {
-    id: "breakdown-service",
-    title: "Breakdown Service",
+    id: "robotic-cutting",
+    title: "Robotic Cutting",
     description:
-      "Emergency roadside assistance when you need it most. We provide fast response times for breakdowns and jump starts.",
+      "Precision robotic cutting services to remove tree roots, debris, and obstructions from your pipes. Minimal disruption to your property.",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/breakdown.avif",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/robotic-cutting.jpg",
   },
   {
-    id: "brake-services",
-    title: "Brake Services",
+    id: "no-dig-repair",
+    title: "No Dig Pipe Repair",
     description:
-      "Professional brake service at your location. We handle brake pad replacement, rotor resurfacing, and brake system diagnostics.",
+      "Revolutionary no-dig pipe repair solutions that fix damaged pipes without destroying your landscaping, driveways, or flooring.",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/brake.avif",
-  },
-  {
-    id: "battery-services",
-    title: "Battery Services",
-    description:
-      "Complete battery service including testing, cleaning terminals, and replacement with high-quality batteries.",
-    image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/battery.avif",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/no-dig-repair.jpg",
   },
 ]
 
@@ -71,10 +63,10 @@ export function MobileServicesGrid() {
             </div>
             <div className="flex gap-2 flex-col">
               <h2 className="text-3xl font-extrabold lg:text-5xl tracking-tight max-w-4xl text-left">
-                Professional Mobile Mechanic Services in Burleigh
+                Pipe Repair Services in Sydney
               </h2>
               <p className="text-balance text-muted-foreground lg:text-lg max-w-3xl leading-relaxed text-left">
-                From routine maintenance to emergency repairs, our fully equipped mobile workshop brings professional automotive service directly to your location in Burleigh.
+                Blocked drains? Cracked pipes? We'll refresh your old pipes with a range of pipe relining and repair services in Sydney.
               </p>
             </div>
           </div>

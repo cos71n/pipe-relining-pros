@@ -16,15 +16,16 @@ export function Footer() {
           <div>
             <div className="mb-4">
               <Image
-                src="https://static.wixstatic.com/media/b9ada1_4a29515a6c4241b89fd8e41292065500~mv2.png/v1/fill/w_247,h_91,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/BorderMobileMechanic_LOGO_v2_PNG.png"
-                alt="Border Mobile Mechanical"
-                width={140}
-                height={52}
-                className="h-12 w-auto"
+                src="https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/pipe-relining-pros-logo.png"
+                alt="Pipe Relining Pros"
+                width={264}
+                height={100}
+                className="w-auto"
+                style={{ height: '100px' }}
               />
             </div>
             <p className="text-sm text-muted-foreground">
-              Mobile mechanic services open 24/7 for regular & emergency services
+              Professional pipe relining services for Sydney. No-dig pipe repairs and relining solutions.
             </p>
           </div>
           
@@ -33,7 +34,7 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Quick Links</h4>
             <div className="space-y-2 text-sm">
               <Link href="#services" className="block hover:underline">Services</Link>
-              <Link href="#about" className="block hover:underline">About</Link>
+              <Link href="#our-process" className="block hover:underline">About</Link>
               <button 
                 onClick={openChat}
                 className="block hover:underline text-left"
@@ -53,16 +54,16 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Locations</h4>
             <div className="space-y-2 text-sm">
-              <Link href="/locations/tweed-heads" className="block hover:underline">Tweed Heads</Link>
-              <Link href="/locations/burleigh" className="block hover:underline">Burleigh</Link>
-              <Link href="/locations/palm-beach" className="block hover:underline">Palm Beach</Link>
+              <Link href="/locations/north-shore" className="block hover:underline">North Shore</Link>
+              <Link href="/locations/eastern-suburbs" className="block hover:underline">Eastern Suburbs</Link>
+              <Link href="/locations/inner-west" className="block hover:underline">Inner West</Link>
               <Link href="/locations" className="block hover:underline font-medium">All Locations</Link>
             </div>
           </div>
         </div>
         
         <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-          © 2025 Border Mobile Mechanical. All rights reserved.
+          © 2025 Pipe Relining Pros. All rights reserved.
         </div>
       </div>
     </footer>

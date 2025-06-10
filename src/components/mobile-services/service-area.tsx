@@ -4,16 +4,16 @@ import { MapPin, ArrowRight } from "lucide-react"
 
 export function ServiceArea() {
   const locations = [
-    "Tweed Heads",
-    "Burleigh", 
-    "Palm Beach",
-    "Byron Bay",
-    "Miami",
-    "Currumbin",
-    "Chinderah",
-    "Kings Cliff",
-    "Coolangatta",
-    "Surfers Paradise"
+    "North Shore",
+    "Eastern Suburbs",
+    "Inner West",
+    "Sutherland & St George",
+    "Hills District",
+    "Northern Districts",
+    "Western Sydney",
+    "Macarthur",
+    "Northern Beaches",
+    "Liverpool & South West"
   ]
   
   return (
@@ -23,10 +23,10 @@ export function ServiceArea() {
           <Badge variant="outline" className="mb-4">Service Area</Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             <MapPin className="w-8 h-8 text-primary inline mr-2" />
-            Servicing the Gold Coast & Northern NSW Region
+            Servicing the Greater Sydney Area
           </h2>
           <p className="text-lg text-muted-foreground mb-8 md:mb-12">
-            We can visit you wherever your car is across the Northern NSW and Gold Coast region.
+            We provide pipe relining Sydney wide and can help you wherever you are.
           </p>
           
           {/* Location Links Grid */}

@@ -30,81 +30,63 @@ export interface Gallery4Props {
 
 const data = [
   {
-    id: "oil-change",
-    title: "Oil Change & Maintenance",
+    id: "pipe-relining",
+    title: "Pipe Relining",
     description:
-      "Quick and convenient oil changes with premium oil and filters. We also perform multi-point inspections to catch potential issues early and keep your vehicle running smoothly.",
+      "Advanced trenchless pipe relining technology that repairs damaged pipes without excavation. Long-lasting solution with 50+ year lifespan.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/oil-change.webp",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/pipe-relining.jpg",
   },
   {
-    id: "logbook-service",
-    title: "Logbook Service",
+    id: "blocked-drains",
+    title: "Blocked Drains",
     description:
-      "Complete manufacturer-specified logbook servicing to maintain your warranty. We follow all service schedules and use genuine or approved parts to keep your vehicle in peak condition.",
+      "Fast and effective blocked drain clearing using high-pressure water jetting and specialist equipment. Same-day service available.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/logbook.avif",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/blocked-drains.jpg",
   },
   {
-    id: "purchase-inspection",
-    title: "Purchase Inspections",
+    id: "drain-inspections",
+    title: "Drain Inspections",
     description:
-      "Comprehensive pre-purchase vehicle inspections to help you make informed buying decisions. We check all major systems and provide detailed reports on the vehicle's condition.",
+      "Comprehensive CCTV drain inspections to identify blockages, cracks, and structural issues. Detailed reports with repair recommendations.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/purchase-inspection.avif",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/drain-inspections.jpg",
   },
   {
-    id: "breakdown-service",
-    title: "Breakdown Service",
+    id: "robotic-cutting",
+    title: "Robotic Cutting",
     description:
-      "Emergency roadside assistance when you need it most. We provide fast response times for breakdowns, jump starts, flat tire changes, and getting you back on the road safely.",
+      "Precision robotic cutting services to remove tree roots, debris, and obstructions from your pipes. Minimal disruption to your property.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/breakdown.avif",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/robotic-cutting.jpg",
   },
   {
-    id: "brake-services",
-    title: "Brake Services",
+    id: "no-dig-repair",
+    title: "No Dig Pipe Repair",
     description:
-      "Professional brake service at your location. We handle brake pad replacement, rotor resurfacing, brake fluid changes, and complete brake system diagnostics to keep you safe on the road.",
+      "Revolutionary no-dig pipe repair solutions that fix damaged pipes without destroying your landscaping, driveways, or flooring.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/brake.avif",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/no-dig-repair.jpg",
   },
   {
-    id: "battery-services",
-    title: "Battery Services",
+    id: "sewer-line-repair",
+    title: "Sewer Line Repair",
     description:
-      "Complete battery service including testing, cleaning terminals, and replacement with high-quality batteries. We'll ensure your car starts reliably every time.",
+      "Expert sewer line repair services using modern techniques and equipment. We handle everything from minor repairs to complete sewer line replacement.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/battery.avif",
-  },
-  {
-    id: "engine-diagnostics",
-    title: "Engine Diagnostics & Repair",
-    description:
-      "Advanced diagnostic equipment to identify engine problems quickly. From check engine lights to performance issues, we provide expert repairs at your location.",
-    href: "#contact",
-    image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/engine-repair.webp",
-  },
-  {
-    id: "ac-heating",
-    title: "AC & Heating Service",
-    description:
-      "Stay comfortable year-round with our climate control services. We repair and service air conditioning, heating systems, and cabin air filters for optimal comfort.",
-    href: "#contact",
-    image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/border-mobile-mechanical/services/ac-heating.avif",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/sewer-line-repair.jpg",
   },
 ];
 
 const Gallery4 = ({
-  description = "Border Mobile Mechanical can help you with your car issue, wherever you are. From routine maintenance to complex repairs, we bring the garage to your location with fully equipped vehicles and expert technicians.",
+  description = "Blocked drains? Cracked pipes? We'll refresh your old pipes with a range of pipe relining and repair services in Sydney.",
   items = data,
 }: Gallery4Props) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();
@@ -138,8 +120,7 @@ const Gallery4 = ({
             Our Services
           </Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Professional Mobile Services
-            <span className="text-primary"> That Come to You</span>
+            Pipe Repair Services in Sydney
           </h2>
           <p className="text-lg text-muted-foreground">
             {description}

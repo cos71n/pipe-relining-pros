@@ -22,7 +22,7 @@ export function WhyChooseUs() {
     {
       icon: Wrench,
       title: "Expert Technicians",
-      description: "Experienced professionals with specialized equipment"
+      description: "Experienced professionals with specialised equipment"
     }
   ]
 
@@ -32,10 +32,10 @@ export function WhyChooseUs() {
         <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
           <Badge variant="outline" className="mb-4">Why Choose Us</Badge>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Trusted Mobile Service Experts
+            Sydney's Pipe Relining Specialists
           </h2>
           <p className="text-lg text-muted-foreground">
-            We&apos;re committed to providing exceptional service that exceeds your expectations.
+            We're committed to providing the best pipe relining Sydney has to offer: prompt quotes, exceptional service, long term results.
           </p>
         </div>
 
