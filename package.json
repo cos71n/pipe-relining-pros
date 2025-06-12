@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "next dev -p 3002",
     "build": "next build",
+    "postbuild": "node scripts/post-build.js",
     "build:cloudflare": "next build && next export",
     "start": "next start",
     "lint": "next lint",
