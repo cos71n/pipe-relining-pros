@@ -36,7 +36,7 @@ const data = [
       "Advanced trenchless pipe relining technology that repairs damaged pipes without excavation. Long-lasting solution with 50+ year lifespan.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/pipe-relining.jpg",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/pipe-relining.jpg",
   },
   {
     id: "blocked-drains",
@@ -45,7 +45,7 @@ const data = [
       "Fast and effective blocked drain clearing using high-pressure water jetting and specialist equipment. Same-day service available.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/blocked-drains.jpg",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/blocked-drains.jpg",
   },
   {
     id: "drain-inspections",
@@ -54,7 +54,7 @@ const data = [
       "Comprehensive CCTV drain inspections to identify blockages, cracks, and structural issues. Detailed reports with repair recommendations.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/drain-inspections.jpg",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/cctv-drain.jpg",
   },
   {
     id: "robotic-cutting",
@@ -63,7 +63,7 @@ const data = [
       "Precision robotic cutting services to remove tree roots, debris, and obstructions from your pipes. Minimal disruption to your property.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/robotic-cutting.jpg",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/robotic-cutting.jpg",
   },
   {
     id: "no-dig-repair",
@@ -72,7 +72,7 @@ const data = [
       "Revolutionary no-dig pipe repair solutions that fix damaged pipes without destroying your landscaping, driveways, or flooring.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/no-dig-repair.jpg",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/no-dig-pipe-repair.jpg",
   },
   {
     id: "sewer-line-repair",
@@ -81,12 +81,12 @@ const data = [
       "Expert sewer line repair services using modern techniques and equipment. We handle everything from minor repairs to complete sewer line replacement.",
     href: "#contact",
     image:
-      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/services/sewer-line-repair.jpg",
+      "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/sewer-line-repair.jpg",
   },
 ];
 
 const Gallery4 = ({
-  description = "Blocked drains? Cracked pipes? We'll refresh your old pipes with a range of pipe relining and repair services in Sydney.",
+  description = "Blocked drains? Cracked pipes? We&apos;ll refresh your old pipes with a range of pipe relining and repair services in Sydney.",
   items = data,
 }: Gallery4Props) => {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>();

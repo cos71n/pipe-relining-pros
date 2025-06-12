@@ -66,7 +66,7 @@ export function MobileServicesGrid() {
                 Pipe Repair Services in Sydney
               </h2>
               <p className="text-balance text-muted-foreground lg:text-lg max-w-3xl leading-relaxed text-left">
-                Blocked drains? Cracked pipes? We'll refresh your old pipes with a range of pipe relining and repair services in Sydney.
+                Blocked drains? Cracked pipes? We&apos;ll refresh your old pipes with a range of pipe relining and repair services in Sydney.
               </p>
             </div>
           </div>

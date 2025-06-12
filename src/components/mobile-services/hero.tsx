@@ -3,7 +3,6 @@
 import React from 'react';
 import Image from "next/image";
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Phone, MessageCircle, Star } from "lucide-react"
 import { useQuoteChat } from "@/contexts/quote-chat-context"
 

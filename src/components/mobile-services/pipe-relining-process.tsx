@@ -54,7 +54,7 @@ export default function PipeReliningProcess() {
 
             <div className="space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Our <strong>pipe relining process in Sydney</strong> follows a proven 6-stage methodology that ensures lasting results without excavation. We've perfected this <strong>trenchless pipe repair process</strong> through thousands of successful projects across Sydney's residential and commercial properties.
+                Our <strong>pipe relining process in Sydney</strong> follows a proven 6-stage methodology that ensures lasting results without excavation. We&apos;ve perfected this <strong>trenchless pipe repair process</strong> through thousands of successful projects across Sydney&apos;s residential and commercial properties.
               </p>
               
               <p>
@@ -96,7 +96,7 @@ export default function PipeReliningProcess() {
             </h3>
             
             <div className="space-y-6">
-              {processSteps.map((step, index) => (
+              {processSteps.map((step) => (
                 <div key={step.stage} className="flex gap-4">
                   <div className="flex-shrink-0">
                     <div className="w-12 h-12 bg-hero text-hero-foreground rounded-full flex items-center justify-center font-bold text-lg">

@@ -54,10 +54,10 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Locations</h4>
             <div className="space-y-2 text-sm">
-              <Link href="/locations/north-shore" className="block hover:underline">North Shore</Link>
-              <Link href="/locations/eastern-suburbs" className="block hover:underline">Eastern Suburbs</Link>
-              <Link href="/locations/inner-west" className="block hover:underline">Inner West</Link>
-              <Link href="/locations" className="block hover:underline font-medium">All Locations</Link>
+              <span className="block">North Shore</span>
+              <span className="block">Eastern Suburbs</span>
+              <span className="block">Inner West</span>
+              <span className="block font-medium">All Locations</span>
             </div>
           </div>
         </div>

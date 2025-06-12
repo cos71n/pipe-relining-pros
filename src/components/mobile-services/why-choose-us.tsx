@@ -31,12 +31,12 @@ export function WhyChooseUs() {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-8 md:mb-12">
           <Badge variant="outline" className="mb-4">Why Choose Us</Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Sydney's Pipe Relining Specialists
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            We're committed to providing the best pipe relining Sydney has to offer: prompt quotes, exceptional service, long term results.
-          </p>
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
+        Sydney&apos;s Pipe Relining Specialists
+      </h2>
+      <p className="text-lg text-muted-foreground">
+        We&apos;re committed to providing the best pipe relining Sydney has to offer: prompt quotes, exceptional service, long term results.
+      </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

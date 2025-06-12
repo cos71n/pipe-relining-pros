@@ -35,22 +35,17 @@ export function ServiceArea() {
               <Button
                 key={index}
                 variant="outline"
-                className="h-auto py-3 px-4 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors"
-                asChild
+                className="h-auto py-3 px-4 text-sm font-medium hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
               >
-                <a href={`/locations/${location.toLowerCase().replace(/\s+/g, '-')}`}>
-                  {location}
-                </a>
+                {location}
               </Button>
             ))}
           </div>
           
           {/* See All Locations Link */}
-          <Button variant="ghost" className="text-primary hover:text-primary/80" asChild>
-            <a href="/locations">
-              See all locations we service
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </a>
+          <Button variant="ghost" className="text-primary hover:text-primary/80 cursor-default">
+            See all locations we service
+            <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </div>
       </div>

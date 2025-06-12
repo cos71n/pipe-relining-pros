@@ -34,10 +34,10 @@ const siteDescription = process.env.SITE_DESCRIPTION || `Professional mobile ser
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${businessName} - Professional Mobile Services`,
-    template: `%s | ${businessName}`
+    default: `Pipe Relining Sydney | Pipe Relining Pros`,
+    template: `%s | Pipe Relining Pros`
   },
-  description: siteDescription,
+  description: 'Pipe relining Sydney wide with free quotes and extended warranty on work.',
   keywords: [
     'mobile services',
     'mobile mechanic',
@@ -244,9 +244,10 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="//cdn.21st.dev" />
         
         {/* Favicon and app icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/pipe-relining-avatar.jpg" type="image/jpeg" />
+        <link rel="icon" href="/pipe-relining-avatar.jpg" type="image/jpeg" sizes="32x32" />
+        <link rel="icon" href="/pipe-relining-avatar.jpg" type="image/jpeg" sizes="16x16" />
+        <link rel="apple-touch-icon" href="/pipe-relining-avatar.jpg" />
         
         {/* Mobile PWA */}
         <link rel="manifest" href="/manifest.json" />

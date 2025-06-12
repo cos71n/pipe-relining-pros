@@ -39,7 +39,7 @@ export default function PipeReliningInfo() {
                 </p>
                 
                 <p>
-                  Our Sydney pipe relining specialists have successfully completed thousands of projects across the metropolitan area, from residential bathroom repairs to large commercial sewer line rehabilitations. We're fully licensed, insured, and committed to delivering lasting solutions.
+                  Our Sydney pipe relining specialists have successfully completed thousands of projects across the metropolitan area, from residential bathroom repairs to large commercial sewer line rehabilitations. We&apos;re fully licensed, insured, and committed to delivering lasting solutions.
                 </p>
                 
                 <div className="mt-6">

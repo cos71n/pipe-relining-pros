@@ -1,7 +1,6 @@
 "use client"
 
 import React, { useState, FormEvent, useEffect } from "react"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { MessageCircle, Phone, X, Wrench, CornerDownLeft } from "lucide-react"
 import { ChatBubble, ChatBubbleAvatar, ChatBubbleMessage } from "@/components/ui/chat-bubble"
@@ -36,14 +35,7 @@ interface LeadData {
   finalMessage: string
 }
 
-const SERVICES = [
-  "Car Check - Pre Purchase Inspection",
-  "Oil & Brake Service", 
-  "Logbook Service",
-  "Battery Change",
-  "Breakdown Service",
-  "General Mechanic"
-]
+
 
 // Define the steps for the stepper
 const QUOTE_STEPS = [
@@ -277,7 +269,7 @@ export function QuoteChat() {
                 src={
                   message.sender === "user"
                     ? undefined
-                    : "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/pipe-relining-pros-logo.png"
+                    : "https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/pipe-relining-avatar.jpg"
                 }
                 fallback={message.sender === "user" ? "You" : "PRP"}
               />

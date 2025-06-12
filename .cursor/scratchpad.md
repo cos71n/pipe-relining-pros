@@ -209,6 +209,9 @@ Based on research, 21st.dev is:
 - [✅] Add Sewer Line Repair service card to services section (COMPLETED)
 - [✅] Add "The Process" section with 6-stage pipe relining process (COMPLETED)
 - [✅] Update "Why Choose Us" section for pipe relining focus (COMPLETED)
+- [✅] Update services section images with specific pipe relining photos (COMPLETED)
+- [✅] Update chat avatar to pipe relining professional image (COMPLETED)
+- [✅] SEO and navigation updates (title, description, remove links, favicon) (COMPLETED)
 - [⚡] Quote chat sending mechanism implementation (IN PROGRESS)
 - [ ] Security foundation implementation
 - [ ] Cloudflare integration and configuration
@@ -219,6 +222,95 @@ Based on research, 21st.dev is:
 - [ ] Documentation and deployment guide
 
 ## Current Sprint / Active Tasks
+
+#### Task 43: SEO and Navigation Updates ✅ **COMPLETED**
+**User Request**: Update title tag, description, remove location links, and change favicon.
+
+**Success Criteria:**
+- [✅] Update title tag to "Pipe Relining Sydney | Pipe Relining Pros"
+- [✅] Update meta description to "Pipe relining Sydney wide with free quotes and extended warranty on work."
+- [✅] Remove all location links from Service Area section
+- [✅] Remove all location links from Footer
+- [✅] Change favicon to pipe relining avatar image
+
+**Implementation Completed:**
+- **Title Tag**: Changed to "Pipe Relining Sydney | Pipe Relining Pros"
+- **Meta Description**: Updated to "Pipe relining Sydney wide with free quotes and extended warranty on work."
+- **Service Area Links**: Converted from clickable links to static buttons with cursor-default
+- **Footer Location Links**: Changed from Link components to span elements
+- **Favicon**: Updated to use pipe-relining-avatar.jpg
+
+**Technical Details:**
+- **Files Modified**: 
+  - `src/app/layout.tsx` - Title, description, and favicon updates
+  - `src/components/mobile-services/service-area.tsx` - Removed location links
+  - `src/components/mobile-services/footer.tsx` - Removed location links
+- **Favicon Implementation**: Downloaded avatar image to public folder and updated favicon links
+- **Link Removal**: Maintained visual appearance but removed href functionality
+
+**Business Impact:**
+- **SEO Optimization**: Title and description now target "pipe relining Sydney" keywords
+- **User Experience**: Simplified navigation without broken location pages
+- **Brand Identity**: Favicon now shows pipe relining professional avatar
+- **Marketing Focus**: Description highlights free quotes and warranty benefits
+
+#### Task 42: Update Chat Avatar to Pipe Relining Avatar ✅ **COMPLETED**
+**User Request**: Make the avatar in the chat box use the pipe relining avatar image.
+
+**Success Criteria:**
+- [✅] Replace logo image with pipe relining avatar in chat messages
+- [✅] Update avatar URL to use pipe-relining-avatar.jpg
+- [✅] Maintain existing avatar styling and functionality
+
+**Implementation Completed:**
+- **Component Updated**: Modified `src/components/mobile-services/quote-chat.tsx`
+- **Avatar URL Changed**: From `pipe-relining-pros-logo.png` to `pipe-relining-avatar.jpg`
+- **Image URL**: `https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/pipe-relining-avatar.jpg`
+- **Fallback Text**: Kept as "PRP" for Pipe Relining Pros
+
+**Technical Details:**
+- **File Modified**: `src/components/mobile-services/quote-chat.tsx`
+- **Line Updated**: ChatBubbleAvatar src attribute for AI messages
+- **Avatar Size**: Maintained at h-8 w-8 (32x32px)
+- **User Avatar**: Remains as text fallback "You"
+
+**Business Impact:**
+- **Professional Appearance**: Avatar shows actual pipe relining professional
+- **Brand Consistency**: Uses dedicated avatar image instead of logo
+- **User Experience**: More personal feel with human avatar in chat
+- **Trust Building**: Real person avatar increases trust in quote process
+
+#### Task 41: Update Services Section Images ✅ **COMPLETED**
+**User Request**: Add specific images to the services section for each pipe relining service.
+
+**Success Criteria:**
+- [✅] Update Pipe Relining image URL
+- [✅] Update Blocked Drains image URL  
+- [✅] Update Drain Inspections image URL (using CCTV drain image)
+- [✅] Update Robotic Cutting image URL
+- [✅] Update No Dig Pipe Repair image URL
+- [✅] Update Sewer Line Repair image URL
+
+**Implementation Completed:**
+- **Component Updated**: Modified `src/components/blocks/gallery4.tsx` with new image URLs
+- **Images Updated**:
+  1. **Pipe Relining**: `pipe-relining.jpg`
+  2. **Blocked Drains**: `blocked-drains.jpg` (changed from cctv-drain.jpg)
+  3. **Drain Inspections**: `cctv-drain.jpg` (kept as is)
+  4. **Robotic Cutting**: `robotic-cutting.jpg`
+  5. **No Dig Pipe Repair**: `no-dig-pipe-repair.jpg`
+  6. **Sewer Line Repair**: `sewer-line-repair.jpg`
+
+**Technical Details:**
+- **File Modified**: `src/components/blocks/gallery4.tsx`
+- **URL Pattern**: All images use the `https://pub-dde82a4c37944e70932bfac79eb42fc2.r2.dev/pipe-relining-pros/` base URL
+- **Image Optimization**: Images are loaded with Next.js Image component with lazy loading and quality optimization
+
+**Business Impact:**
+- **Visual Appeal**: Each service now has its own relevant image
+- **Service Clarity**: Images help customers understand each service offering
+- **Professional Presentation**: High-quality service-specific images build trust
+- **Conversion Optimization**: Visual representation of services improves user engagement
 
 #### Task 40: Update "Why Choose Us" Section for Pipe Relining Focus ✅ **COMPLETED**
 **User Request**: Update "Why Choose Us" section heading and description to focus on pipe relining, and change "specialized" to "specialised" (Australian spelling).

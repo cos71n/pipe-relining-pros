@@ -87,13 +87,13 @@ export default function PipeReliningInfoTabs() {
                     <strong>Pipe relining</strong> is an advanced process used to repair damaged or broken sewer pipes. It solves blocked drain issues using trenchless pipe technology without the disruption of digging up your yard or damaging your walls and floors.
                   </p>
                   <p>
-                    Our pipe relining method is known as <strong>"cured-in-place pipe" (CIPP) relining</strong>, which involves relining existing plumbing pipes to repair broken, cracked, tree root-damaged, or otherwise compromised pipes. This innovative approach provides a permanent solution that's less invasive than traditional repair methods.
+                    Our pipe relining method is known as <strong>&ldquo;cured-in-place pipe&rdquo; (CIPP) relining</strong>, which involves relining existing plumbing pipes to repair broken, cracked, tree root-damaged, or otherwise compromised pipes. This innovative approach provides a permanent solution that&apos;s less invasive than traditional repair methods.
                   </p>
                   <p>
                     <strong>Pipe Relining Pros</strong> uses advanced pipe relining technology as a no-dig solution for fixing broken pipes. With comprehensive CCTV drain inspection, our process works effectively on various pipe materials including PVC, Copper, Cast Iron, Concrete, and Vitrified Clay pipes.
                   </p>
                   <p>
-                    Instead of excavating your damaged pipes, our relining process repairs them using a high-grade resin-saturated textile liner. This pipe liner functions like a protective sleeve inside your existing pipes. Once precisely positioned, the liner is inflated and left to cure, forming a brand-new, seamless pipe that's incredibly strong and durable within your old damaged pipe structure.
+                    Instead of excavating your damaged pipes, our relining process repairs them using a high-grade resin-saturated textile liner. This pipe liner functions like a protective sleeve inside your existing pipes. Once precisely positioned, the liner is inflated and left to cure, forming a brand-new, seamless pipe that&apos;s incredibly strong and durable within your old damaged pipe structure.
                   </p>
                 </div>
               </div>
@@ -110,7 +110,7 @@ export default function PipeReliningInfoTabs() {
                     The pipe relining technology and industry are constantly evolving. <strong>Pipe Relining Pros</strong> stays at the forefront of these advances, utilizing state-of-the-art equipment and premium-grade materials that rank among the top performers in industry testing. We use this cutting-edge technology to deliver superior drain pipe relining and pipe repair services throughout Sydney.
                   </p>
                   <p>
-                    Sydney's older housing stock makes the benefits of no-dig solutions and underground pipe relining particularly valuable. Our trenchless approach is the preferred method over traditional pipe replacement, which typically involves extensive excavation that can destroy gardens, driveways, and interior floors.
+                    Sydney&apos;s older housing stock makes the benefits of no-dig solutions and underground pipe relining particularly valuable. Our trenchless approach is the preferred method over traditional pipe replacement, which typically involves extensive excavation that can destroy gardens, driveways, and interior floors.
                   </p>
                   <p>
                     The future of pipe relining continues to advance as this technology proves to be significantly less expensive and disruptive than conventional pipe repair methods. With an expected service life of up to 50+ years and our comprehensive 35-year workmanship guarantee, pipe relining represents an intelligent, permanent solution to pipe problems that also delivers environmental benefits through reduced waste and disruption.
