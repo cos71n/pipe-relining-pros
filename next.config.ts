@@ -311,8 +311,7 @@ const nextConfig: NextConfig = {
   },
 
   // Output configuration for Cloudflare Pages
-  // Remove 'export' output mode for Cloudflare Pages compatibility
-  // output: 'export',
+  output: 'export',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
 };
